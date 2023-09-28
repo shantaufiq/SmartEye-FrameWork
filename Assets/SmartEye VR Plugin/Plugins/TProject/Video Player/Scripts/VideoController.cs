@@ -115,9 +115,10 @@ namespace TProject
             }
             else
             {
-                if (Input.GetMouseButtonDown(0))
-                    return true;
-                return (Input.GetAxis("Mouse X") != 0) || (Input.GetAxis("Mouse Y") != 0 || checker.isPlayerHoverCanvas);
+                return (checker.isPlayerHoverCanvas);
+                // if (Input.GetMouseButtonDown(0))
+                //     return true;
+                // return (Input.GetAxis("Mouse X") != 0) || (Input.GetAxis("Mouse Y") != 0 || checker.isPlayerHoverCanvas);
             }
 
         }

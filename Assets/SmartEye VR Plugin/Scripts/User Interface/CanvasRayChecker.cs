@@ -25,7 +25,7 @@ namespace SmartEye.Framework
 
             if (eventData.IsPointerMoving() && eventData.hovered.Find((x) => x.gameObject.CompareTag("VideoPlayerCanvas")))
             {
-                Debug.Log($"{eventData.hovered[0].name}");
+                // Debug.Log($"{eventData.hovered[0].name}");
                 isPlayerHoverCanvas = true;
             }
             else isPlayerHoverCanvas = false;

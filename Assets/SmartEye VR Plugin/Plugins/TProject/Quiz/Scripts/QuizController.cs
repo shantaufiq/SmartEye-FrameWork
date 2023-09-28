@@ -100,12 +100,12 @@ namespace Tproject.Quiz
                     if (btnAnswerd.name == contensStaging[_currentIndex].CorrectAnswer)
                     {
                         scoreTrue++;
-                        Debug.Log($"the answer is: true | current score {scoreTrue} / {scoreFalse}");
+                        // Debug.Log($"the answer is: true | current score {scoreTrue} / {scoreFalse}");
                     }
                     else
                     {
                         scoreFalse++;
-                        Debug.Log($"the answer is: false | current score {scoreTrue} / {scoreFalse}");
+                        // Debug.Log($"the answer is: false | current score {scoreTrue} / {scoreFalse}");
                     }
 
                     isChecking = true;

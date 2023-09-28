@@ -20,12 +20,12 @@ namespace Tproject.AudioManager
             if (Instance == null)
             {
                 Instance = this;
-                // DontDestroyOnLoad(this);
+                DontDestroyOnLoad(this);
             }
-            // else
-            // {
-            //     Destroy(this);
-            // }
+            else
+            {
+                Destroy(this);
+            }
         }
 
         private void Start()

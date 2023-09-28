@@ -89,7 +89,7 @@ namespace SmartEye.Framework
                 }
                 else
                 {
-                    Debug.Log($"start load area {Getint("areaIndex")} without load scene ");
+                    // Debug.Log($"start load area {Getint("areaIndex")} without load scene ");
                     SetUpMaterial(Getint("areaIndex"));
                 }
             }

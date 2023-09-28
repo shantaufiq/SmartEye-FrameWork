@@ -16,7 +16,7 @@ namespace SmartEye.Framework
         [System.Obsolete]
         protected override void OnSelectEntered(XRBaseInteractable interactable)
         {
-            Debug.Log($"object entered with name {interactable.name}");
+            // Debug.Log($"object entered with name {interactable.name}");
 
             interactable.transform.SetParent(parentArea);
 
