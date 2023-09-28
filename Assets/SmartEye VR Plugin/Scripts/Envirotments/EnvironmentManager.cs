@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEditor;
 
-namespace SmartEye.Framework
+namespace Seville
 {
     public class EnvironmentManager : MonoBehaviour
     {

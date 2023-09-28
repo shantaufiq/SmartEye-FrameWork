@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 
-namespace SmartEye.Framework
+namespace Seville
 {
     public class CanvasRayChecker : TrackedDeviceGraphicRaycaster
     {

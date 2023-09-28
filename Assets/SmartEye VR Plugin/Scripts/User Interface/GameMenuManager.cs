@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Tproject.AudioManager;
 
-namespace SmartEye.Framework
+namespace Seville
 {
     public class GameMenuManager : MonoBehaviour
     {

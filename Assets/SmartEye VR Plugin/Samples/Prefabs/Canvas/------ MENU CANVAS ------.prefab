@@ -1569,7 +1569,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SmartEye.Framework.EnvNavigation, Assembly-CSharp
+        m_TargetAssemblyTypeName: Seville.EnvNavigation, Assembly-CSharp
         m_MethodName: OnClickChangeEnvirontment
         m_Mode: 3
         m_Arguments:
@@ -1702,7 +1702,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SmartEye.Framework.EnvNavigation, Assembly-CSharp
+        m_TargetAssemblyTypeName: Seville.EnvNavigation, Assembly-CSharp
         m_MethodName: OnClickChangeEnvirontment
         m_Mode: 3
         m_Arguments:
@@ -3333,7 +3333,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SmartEye.Framework.EnvNavigation, Assembly-CSharp
+        m_TargetAssemblyTypeName: Seville.EnvNavigation, Assembly-CSharp
         m_MethodName: OnClickChangeEnvirontment
         m_Mode: 3
         m_Arguments:
@@ -4348,7 +4348,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SmartEye.Framework.EnvNavigation, Assembly-CSharp
+        m_TargetAssemblyTypeName: Seville.EnvNavigation, Assembly-CSharp
         m_MethodName: OnClickChangeEnvirontment
         m_Mode: 3
         m_Arguments:

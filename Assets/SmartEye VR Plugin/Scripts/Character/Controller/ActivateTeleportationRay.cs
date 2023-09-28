@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 
-namespace SmartEye.Framework
+namespace Seville
 {
     public class ActivateTeleportationRay : MonoBehaviour
     {
