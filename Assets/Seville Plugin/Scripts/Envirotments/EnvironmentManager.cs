@@ -27,22 +27,22 @@ namespace Seville
             formatMaterial.color = new Color(1, 1, 1, 0);
         }
 
+        void OnApplicationPause(bool pauseStatus)
+        {
+            if (!pauseStatus)
+            {
+                Debug.Log("Application was closed " + Time.time + " seconds");
+                SetInt("areaIndex", 0);
+                formatMaterial.color = new Color(1, 1, 1, 0);
+            }
+        }
+
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
-                // DontDestroyOnLoad(this);
             }
-            // else if (Instance != null && !isChangingProcess)
-            // {
-            //     Destroy(this);
-            // }
-
-#if UNITY_EDITOR
-            // Material material = AssetDatabase.LoadAssetAtPath<Material>("Assets/SmartEye VR Plugin/Package Resources/Materials/TargetEnvironment360.mat");
-            // formatMaterial = material;
-#endif
         }
 
         private void Start()

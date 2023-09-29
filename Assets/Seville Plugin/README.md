@@ -1,4 +1,4 @@
-# Smarteye plugin
+# Seville plugin
 
 ## Description
 Smarteye plugin is an add-on that supports developers in creating virtual reality applications. This plugin runs using the XR Interaction toolkit as a code dependency. The Smarteye plugin was created to make it easier for developers to develop so it can cut application creation time.

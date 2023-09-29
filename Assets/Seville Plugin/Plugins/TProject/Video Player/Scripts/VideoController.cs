@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using Tproject.AudioManager;
 using Seville;
 
 namespace TProject
@@ -63,11 +64,15 @@ namespace TProject
             {
                 pauseButton.SetActive(true);
                 playButton.SetActive(false);
+
+                AudioManager.Instance.musicSource.mute = true;
             }
             else
             {
                 playButton.SetActive(true);
                 pauseButton.SetActive(false);
+
+                AudioManager.Instance.musicSource.mute = false;
             }
         }
 
@@ -91,10 +96,14 @@ namespace TProject
             if (videoPlayer.isPlaying)
             {
                 videoPlayer.Pause();
+
+
             }
             else
             {
                 videoPlayer.Play();
+
+
             }
         }
 

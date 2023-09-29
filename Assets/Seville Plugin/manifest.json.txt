@@ -1,7 +1,7 @@
 {
-  "name": "com.smarteye.smarteyeplugin",
+  "name": "com.smarteye.seville",
   "version": "1.0.0",
-  "displayName": "Smarteye Plugin",
+  "displayName": "Seville",
   "description": "This is an example package",
   "documentationUrl": "https://www.smarteye.id",
   "dependencies": {

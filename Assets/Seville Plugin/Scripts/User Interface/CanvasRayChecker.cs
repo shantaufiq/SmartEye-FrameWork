@@ -18,21 +18,13 @@ namespace Seville
             base.Raycast(eventData, resultAppendList);
 
             CheckerRayCast(eventData);
-
-            // Debug.Log(eventData.pointerEnter.name);
         }
 
         private void CheckerRayCast(PointerEventData eventData)
         {
             if (!isTrigger) return;
 
-            // if (eventData.IsPointerMoving() && eventData.hovered.Find((x) => x.gameObject.CompareTag("VideoPlayerCanvas")))
-            // {
-            //     // Debug.Log($"{eventData.hovered[0].name}");
-            //     isPlayerHoverCanvas = true;
-            // }
-
-            if (eventData.pointerEnter)
+            if (eventData.pointerEnter && eventData.hovered.Find((x) => x.gameObject.CompareTag("VideoPlayerCanvas")))
             {
                 isPlayerHoverCanvas = true;
             }
