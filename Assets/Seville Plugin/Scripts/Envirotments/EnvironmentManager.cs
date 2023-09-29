@@ -15,7 +15,7 @@ namespace Seville
 
         [Header("Sphere Area Settings")]
         // public Shader formatShader;
-        private Material formatMaterial;
+        public Material formatMaterial;
         public GameObject targetSphereArea;
 
         bool isChangingProcess = false;
@@ -40,8 +40,8 @@ namespace Seville
             // }
 
 #if UNITY_EDITOR
-            Material material = AssetDatabase.LoadAssetAtPath<Material>("Assets/SmartEye VR Plugin/Package Resources/Materials/TargetEnvironment360.mat");
-            formatMaterial = material;
+            // Material material = AssetDatabase.LoadAssetAtPath<Material>("Assets/SmartEye VR Plugin/Package Resources/Materials/TargetEnvironment360.mat");
+            // formatMaterial = material;
 #endif
         }
 

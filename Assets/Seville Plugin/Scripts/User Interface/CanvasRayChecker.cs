@@ -8,6 +8,7 @@ namespace Seville
 {
     public class CanvasRayChecker : TrackedDeviceGraphicRaycaster
     {
+
         [Header("SmartEye Framework")]
         public bool isTrigger = false;
         [HideInInspector] public bool isPlayerHoverCanvas;
@@ -17,17 +18,25 @@ namespace Seville
             base.Raycast(eventData, resultAppendList);
 
             CheckerRayCast(eventData);
+
+            // Debug.Log(eventData.pointerEnter.name);
         }
 
         private void CheckerRayCast(PointerEventData eventData)
         {
             if (!isTrigger) return;
 
-            if (eventData.IsPointerMoving() && eventData.hovered.Find((x) => x.gameObject.CompareTag("VideoPlayerCanvas")))
+            // if (eventData.IsPointerMoving() && eventData.hovered.Find((x) => x.gameObject.CompareTag("VideoPlayerCanvas")))
+            // {
+            //     // Debug.Log($"{eventData.hovered[0].name}");
+            //     isPlayerHoverCanvas = true;
+            // }
+
+            if (eventData.pointerEnter)
             {
-                // Debug.Log($"{eventData.hovered[0].name}");
                 isPlayerHoverCanvas = true;
             }
+
             else isPlayerHoverCanvas = false;
         }
     }

@@ -106,21 +106,7 @@ namespace TProject
 
         bool UserInteract()
         {
-            if (Application.isMobilePlatform)
-            {
-                if (Input.touches.Length >= 1)
-                    return true;
-                else
-                    return false;
-            }
-            else
-            {
-                return (checker.isPlayerHoverCanvas);
-                // if (Input.GetMouseButtonDown(0))
-                //     return true;
-                // return (Input.GetAxis("Mouse X") != 0) || (Input.GetAxis("Mouse Y") != 0 || checker.isPlayerHoverCanvas);
-            }
-
+            return (checker.isPlayerHoverCanvas);
         }
     }
 }

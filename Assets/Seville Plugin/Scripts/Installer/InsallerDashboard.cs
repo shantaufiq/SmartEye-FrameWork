@@ -1,5 +1,7 @@
+#if UNITY_EDITOR
 using UnityEditor.PackageManager;
 using UnityEditor.PackageManager.Requests;
+#endif
 
 using System.Collections.Generic;
 using UnityEngine;
