@@ -35,10 +35,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - NonInteractable
+  - Intractable
+  - direct interaction
+  - ray interaction
   - Teleport
   m_SortingLayers:
   - name: Default

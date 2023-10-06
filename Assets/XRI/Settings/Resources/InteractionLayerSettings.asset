@@ -19,6 +19,7 @@ MonoBehaviour:
   - 
   - 
   - 
+  - Player
   - 
   - 
   - 
@@ -39,9 +40,8 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - NonInteractable
+  - Intractable
   - direct interaction
   - ray interaction
   - Teleport
