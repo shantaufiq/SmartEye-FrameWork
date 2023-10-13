@@ -7,25 +7,16 @@ using UnityEngine.Events;
 
 public class QuestController : MonoBehaviour
 {
-    public List<ItemList> toDoList;
+    public List<DataManager.QuestItem> toDoList;
     public bool isPlayOnStart;
     public QuestItem itemPrefabs;
     public Transform itemListParent;
-    public GameObject questPanel;
+    public GameObject questCanvas;
     public PupupMessage popupMessage;
     public Transform canvas;
+    public HeadCanvasController headCanvas;
 
-    [Serializable]
-    public struct ItemList
-    {
-        public Sprite iconSprite;
-        public string title;
-        [TextArea]
-        public string description;
-        public bool isDone;
-        public string doneMessage;
-        public UnityEvent AfterFinishedFunction;
-    }
+    public ScoreController scoreController;
 
     private void Start()
     {
@@ -35,32 +26,51 @@ public class QuestController : MonoBehaviour
 
     public void FinishItem(int index)
     {
-        if (index > toDoList.Count - 1)
+        var dataTarget = DataManager.Instance.GetQuestData();
+
+        if (index > dataTarget.Count - 1)
         {
             Debug.LogWarning($"number {index} is out of todolist count");
             return;
         }
 
-        if (!toDoList[index].isDone)
+        if (!dataTarget[index].isDone)
         {
-            ItemList temp = toDoList[index];
+            DataManager.QuestItem temp = dataTarget[index];
             temp.isDone = true;
-            toDoList[index] = temp;
 
-            temp.AfterFinishedFunction?.Invoke();
-            ShowMessage(toDoList[index].doneMessage);
+            if (temp.score > 0) scoreController.IncreaseScore(temp.score);
+            headCanvas.ShowPopupMessage(dataTarget[index].doneMessage);
+
+            DataManager.Instance.UpdateQuizItemDone(temp, index);
         }
+
+        GetTodoList();
         // PrintItems();
+    }
+
+    private void GetTodoList()
+    {
+        toDoList.Clear();
+
+        if (toDoList.Count == DataManager.Instance.GetQuestData().Count) return;
+
+        foreach (var item in DataManager.Instance.GetQuestData())
+        {
+            toDoList.Add(item);
+        }
     }
 
     public void PrintItems()
     {
+        GetTodoList();
+
         StartCoroutine(PrintQuestItem());
     }
 
     IEnumerator PrintQuestItem()
     {
-        questPanel.SetActive(true);
+        questCanvas.SetActive(true);
 
         for (int child = 0; child < itemListParent.childCount; child++)
         {
@@ -101,5 +111,11 @@ public class QuestController : MonoBehaviour
     {
         var popup = Instantiate(popupMessage, canvas);
         popup.textMessage.text = msg;
+    }
+
+    public void CloseQuestCanvas()
+    {
+        questCanvas.SetActive(false);
+        toDoList.Clear();
     }
 }
