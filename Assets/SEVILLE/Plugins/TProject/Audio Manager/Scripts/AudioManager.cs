@@ -20,17 +20,29 @@ namespace Tproject.AudioManager
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(this);
+                DontDestroyOnLoad(this.gameObject);
             }
             else
             {
-                Destroy(this);
+                Destroy(this.gameObject);
             }
         }
 
         private void Start()
         {
             PlayMusic("Theme");
+        }
+
+        public void PlayMusicDefault(string name)
+        {
+            Sound s = Array.Find(musicSounds, (x) => x.name == name);
+
+            if (s == null) Debug.Log($"{name} isn't available");
+            else
+            {
+                musicSource.clip = s.clip;
+                musicSource.Play();
+            }
         }
 
         public void PlayMusic(string name)
@@ -80,6 +92,11 @@ namespace Tproject.AudioManager
         public void ToggleMusic()
         {
             musicSource.mute = !musicSource.mute;
+        }
+
+        public void UnmuteMusic()
+        {
+            musicSource.mute = false;
         }
 
         public void ToggleSFX()

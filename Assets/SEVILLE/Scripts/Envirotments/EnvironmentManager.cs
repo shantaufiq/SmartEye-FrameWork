@@ -71,8 +71,11 @@ namespace Seville
             LeanTween.alpha(targetSphereArea, 0, 2f).setOnComplete(() => StartCoroutine(nameof(CheckState)));
 
             if (EnvAreaHandlers[Getint("areaIndex")].backsound != null) AudioManager.Instance.TransitionToNewMusic(EnvAreaHandlers[Getint("areaIndex")].backsound, 0.5f);
+            else AudioManager.Instance.TransitionToNewMusic("Theme", 0.5f);
 
             yield return new WaitUntil(() => isChangingProcess == false);
+
+            AudioManager.Instance.UnmuteMusic();
 
             characterOrigin.transform.eulerAngles = new Vector3(0f, EnvAreaHandlers[Getint("areaIndex")].firstCamLookRotationValue, 0f);
             characterOrigin.Camera.transform.eulerAngles = new Vector3(0f, 0f, 0f);
