@@ -11,16 +11,35 @@ namespace Seville
         public Transform parentArea;
 
         [Tooltip("make sure you have set objName on XRGrabIntractableTwoAttach")]
-        public string targetTag = string.Empty;
+        public List<string> targetObjNames = new List<string>();
+        private MeshRenderer mesh;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            mesh = GetComponent<MeshRenderer>();
+        }
 
         [System.Obsolete]
         protected override void OnSelectEntered(XRBaseInteractable interactable)
         {
-            // Debug.Log($"object entered with name {interactable.name}");
+            base.OnSelectEntered(interactable);
 
             interactable.transform.SetParent(parentArea);
+            ToggleMesh(false);
 
-            base.OnSelectEntered(interactable);
+            var obj = interactable.GetComponent<XRGrabIntractableTwoAttach>();
+            obj.retainTransformParent = false;
+        }
+
+        [System.Obsolete]
+        protected override void OnSelectExited(XRBaseInteractable interactable)
+        {
+            base.OnSelectExited(interactable);
+
+            ToggleMesh(true);
+            var obj = interactable.GetComponent<XRGrabIntractableTwoAttach>();
+            obj.retainTransformParent = true;
         }
 
         [System.Obsolete]
@@ -39,8 +58,13 @@ namespace Seville
         {
             var obj = interactable.GetComponent<XRGrabIntractableTwoAttach>();
 
-            return obj.objName == targetTag;
+            return targetObjNames.Contains(obj.objName);
             // return interactable.CompareTag(targetTag);
+        }
+
+        private void ToggleMesh(bool state)
+        {
+            mesh.enabled = state;
         }
     }
 }
