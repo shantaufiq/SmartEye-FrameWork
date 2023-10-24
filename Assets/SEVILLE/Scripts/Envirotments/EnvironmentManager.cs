@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.IO;
-using UnityEditor;
+using Tproject.AudioManager;
+using Unity.XR.CoreUtils;
 
 namespace Seville
 {
@@ -12,6 +12,7 @@ namespace Seville
         public static EnvironmentManager Instance;
         EnvAreaHandler currentArea;
         public List<EnvAreaHandler> EnvAreaHandlers;
+        public XROrigin characterOrigin;
 
         [Header("Sphere Area Settings")]
         // public Shader formatShader;
@@ -69,9 +70,14 @@ namespace Seville
             HideEnv();
             LeanTween.alpha(targetSphereArea, 0, 2f).setOnComplete(() => StartCoroutine(nameof(CheckState)));
 
+            if (EnvAreaHandlers[Getint("areaIndex")].backsound != null) AudioManager.Instance.TransitionToNewMusic(EnvAreaHandlers[Getint("areaIndex")].backsound, 0.5f);
+
             yield return new WaitUntil(() => isChangingProcess == false);
 
-            LeanTween.alpha(targetSphereArea, 1, 1f).setOnComplete(loadedComplete);
+            characterOrigin.transform.eulerAngles = new Vector3(0f, EnvAreaHandlers[Getint("areaIndex")].firstCamLookRotationValue, 0f);
+            characterOrigin.Camera.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+
+            LeanTween.alpha(targetSphereArea, 1, 2.5f).setOnComplete(loadedComplete);
         }
 
         IEnumerator CheckState()

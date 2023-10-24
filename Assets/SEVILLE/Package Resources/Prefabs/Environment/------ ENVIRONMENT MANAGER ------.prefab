@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6564087432224053736}
   - component: {fileID: 2458759737257989046}
   - component: {fileID: 8850930091860070191}
-  - component: {fileID: 1283915022786484437}
   m_Layer: 0
   m_Name: ------ ENVIRONMENT MANAGER ------
   m_TagString: Untagged
@@ -120,17 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnvAreaHandlers: []
+  playerCharacter: {fileID: 0}
   formatMaterial: {fileID: 0}
   targetSphereArea: {fileID: 2802167973759856707}
---- !u!114 &1283915022786484437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802167973759856707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf76f3c44b55e684a9e883f31b999b4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

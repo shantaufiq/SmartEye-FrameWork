@@ -45,6 +45,12 @@ namespace Tproject.AudioManager
             }
         }
 
+        public void PlayMusic(AudioClip clip)
+        {
+            musicSource.clip = clip;
+            musicSource.Play();
+        }
+
         public void ChangeMusicVolume(float volume)
         {
             musicSource.volume = volume;
@@ -94,6 +100,45 @@ namespace Tproject.AudioManager
         public float GetSfxVolume()
         {
             return sfxSource.volume;
+        }
+
+        public void TransitionToNewMusic(string name, float transitionTime)
+        {
+            Sound s = Array.Find(sfxSounds, (x) => x.name == name);
+
+            if (s == null) Debug.Log($"{name} isn't available");
+            else
+            {
+                StartCoroutine(TransitionMusicCoroutine(s.clip, transitionTime));
+            }
+        }
+
+        public void TransitionToNewMusic(AudioClip clip, float transitionTime)
+        {
+            StartCoroutine(TransitionMusicCoroutine(clip, transitionTime));
+        }
+
+        private IEnumerator TransitionMusicCoroutine(AudioClip clip, float transitionTime)
+        {
+            float startVolume = musicSource.volume;
+
+            for (float t = 0; t < transitionTime; t += Time.deltaTime)
+            {
+                musicSource.volume = Mathf.Lerp(startVolume, 0, t / transitionTime);
+                yield return null;
+            }
+
+            musicSource.Stop();
+            musicSource.volume = startVolume;
+
+            PlayMusic(clip);
+
+            musicSource.volume = 0;
+            for (float t = 0; t < transitionTime; t += Time.deltaTime)
+            {
+                musicSource.volume = Mathf.Lerp(0, startVolume, t / transitionTime);
+                yield return null;
+            }
         }
     }
 }
