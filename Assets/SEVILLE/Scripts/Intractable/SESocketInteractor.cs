@@ -43,6 +43,22 @@ namespace Seville
         }
 
         [System.Obsolete]
+        protected override void OnHoverEntered(XRBaseInteractable interactable)
+        {
+            base.OnHoverEntered(interactable);
+
+            ToggleMesh(false);
+        }
+
+        [System.Obsolete]
+        protected override void OnHoverExited(XRBaseInteractable interactable)
+        {
+            base.OnHoverEntered(interactable);
+
+            ToggleMesh(true);
+        }
+
+        [System.Obsolete]
         public override bool CanHover(XRBaseInteractable interactable)
         {
             return base.CanHover(interactable) && MatchUsingTag(interactable);
