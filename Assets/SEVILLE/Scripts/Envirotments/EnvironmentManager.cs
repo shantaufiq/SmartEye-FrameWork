@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Tproject.AudioManager;
 using Unity.XR.CoreUtils;
+using UnityEditor;
 
 namespace Seville
 {
@@ -21,6 +22,46 @@ namespace Seville
 
         bool isChangingProcess = false;
 
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+        }
+
+        public void AddNewArea()
+        {
+            // GameObject obj = new GameObject($"---- Area Number: {EnvAreaHandlers.Count + 1} ----");
+            // EnvAreaHandler handler = obj.AddComponent<EnvAreaHandler>();
+            // EnvAreaHandlers.Add(handler);
+
+            string prefabPath = "Assets/_Sandboxing/Prefabs/Environments/ENVIRONMENT AREA PHOTO 360.prefab";
+
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+
+            if (prefab == null)
+            {
+                Debug.LogError("Prefab tidak ditemukan di " + prefabPath);
+                return;
+            }
+
+            GameObject obj = Instantiate(prefab);
+            // GameObject obj = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+            // obj.name = prefab.name;
+            obj.name = $"---- Area Number: {EnvAreaHandlers.Count + 1} ----";
+
+            EnvAreaHandler handler = obj.GetComponent<EnvAreaHandler>();
+
+            if (handler == null)
+            {
+                Debug.LogError("Prefab tidak memiliki komponen ChildHandler");
+                return;
+            }
+
+            EnvAreaHandlers.Add(handler);
+        }
+
         void OnApplicationQuit()
         {
             Debug.Log("Application ending after " + Time.time + " seconds");
@@ -35,14 +76,6 @@ namespace Seville
                 Debug.Log("Application was closed " + Time.time + " seconds");
                 SetInt("areaIndex", 0);
                 formatMaterial.color = new Color(1, 1, 1, 0);
-            }
-        }
-
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
             }
         }
 
