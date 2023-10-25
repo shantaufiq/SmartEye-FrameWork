@@ -12,14 +12,14 @@ namespace Seville
         private Dictionary<string, List<GameObject>> prefabsByFolder = new Dictionary<string, List<GameObject>>();
         private string currentFolderPath;
 
-        [MenuItem("Seville/Asset Prefabs Group")]
-        public static void ShowWindowPrefabs()
-        {
-            var window = EditorWindow.GetWindow<PrefabLoaderWindow>();
-            window.LoadPrefabs("Assets/_Sandboxing/Prefabs");
-            window.currentFolderPath = "Assets/_Sandboxing/Prefabs";
-            window.titleContent = new GUIContent("Smarteye Virtual Learning | Asset Prefabs Group");
-        }
+        // [MenuItem("Seville/Asset Prefabs Group")]
+        // public static void ShowWindowPrefabs()
+        // {
+        //     var window = EditorWindow.GetWindow<PrefabLoaderWindow>();
+        //     window.LoadPrefabs("Assets/_Sandboxing/Prefabs");
+        //     window.currentFolderPath = "Assets/_Sandboxing/Prefabs";
+        //     window.titleContent = new GUIContent("Smarteye Virtual Learning | Asset Prefabs Group");
+        // }
 
         // [MenuItem("Seville/Environment 3D")]
         // public static void ShowWindowPrefabs2()
@@ -88,8 +88,8 @@ namespace Seville
         [MenuItem("GameObject/Seville/Create Project VR 360", false, 10)]
         private static void InstanceStarterProject360()
         {
-            GameObject prefab1 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Character/CHARACTER CONTROLLER 360.prefab");
-            GameObject prefab2 = AddPackage("Assets/_Sandboxing/Prefabs/Environments/ENVIRONMENT MANAGER.prefab");
+            GameObject prefab1 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Character/CHARACTER CONTROLLER VR 360.prefab");
+            GameObject prefab2 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Environments/ENVIRONMENT MANAGER.prefab");
             GameObject prefab3 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Audio/AUDIO MANAGER.prefab");
 
             if (prefab1 != null && prefab2 != null)

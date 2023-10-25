@@ -30,13 +30,10 @@ namespace Seville
             }
         }
 
+#if UNITY_EDITOR
         public void AddNewArea()
         {
-            // GameObject obj = new GameObject($"---- Area Number: {EnvAreaHandlers.Count + 1} ----");
-            // EnvAreaHandler handler = obj.AddComponent<EnvAreaHandler>();
-            // EnvAreaHandlers.Add(handler);
-
-            string prefabPath = "Assets/_Sandboxing/Prefabs/Environments/ENVIRONMENT AREA PHOTO 360.prefab";
+            string prefabPath = "Assets/SEVILLE/Package Resources/Prefabs/Environments/ENVIRONMENT AREA PHOTO 360.prefab";
 
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
 
@@ -47,8 +44,6 @@ namespace Seville
             }
 
             GameObject obj = Instantiate(prefab);
-            // GameObject obj = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
-            // obj.name = prefab.name;
             obj.name = $"---- AREA NUMBER: {EnvAreaHandlers.Count + 1} ----";
 
             EnvAreaHandler handler = obj.GetComponent<EnvAreaHandler>();
@@ -61,6 +56,7 @@ namespace Seville
 
             EnvAreaHandlers.Add(handler);
         }
+#endif
 
         void OnApplicationQuit()
         {

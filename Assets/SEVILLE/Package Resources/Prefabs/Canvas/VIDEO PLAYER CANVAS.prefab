@@ -1375,7 +1375,7 @@ GameObject:
   - component: {fileID: 5316402860141563263}
   - component: {fileID: 2054853975586803227}
   m_Layer: 5
-  m_Name: --- VIDEO PLAYER CANVAS ---
+  m_Name: VIDEO PLAYER CANVAS
   m_TagString: VideoPlayerCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5316402860141563263
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1198,7 +1198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 453144180444562483}
   m_Layer: 0
-  m_Name: CHARACTER CONTROLLER 360
+  m_Name: CHARACTER CONTROLLER VR 360
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
