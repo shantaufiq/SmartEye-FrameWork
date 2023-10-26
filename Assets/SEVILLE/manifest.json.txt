@@ -1,6 +1,6 @@
 {
   "name": "com.smarteye.seville",
-  "version": "1.0.0",
+  "version": "1.1",
   "displayName": "Seville",
   "description": "This is an example package",
   "documentationUrl": "https://www.smarteye.id",
