@@ -2857,7 +2857,7 @@ PrefabInstance:
     - target: {fileID: 6218654381595266407, guid: 7d4d16f09584a7449949b34ff4da9c4a,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8403411804582243359, guid: 7d4d16f09584a7449949b34ff4da9c4a,
         type: 3}
@@ -3096,6 +3096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a59f8e78647c8d4daaf5acee25ae45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataManager: {fileID: 11400000, guid: a6da9c5a4e08af14ebbe6ff0afa40165, type: 2}
   textScore: {fileID: 804618111}
 --- !u!1001 &1129063624
 PrefabInstance:
@@ -3898,7 +3899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1455014221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4110,6 +4111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc34cb0b3ba5d91469df986b5225b373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataManager: {fileID: 11400000, guid: a6da9c5a4e08af14ebbe6ff0afa40165, type: 2}
   toDoList: []
   isPlayOnStart: 0
   itemPrefabs: {fileID: 9099909717491724136, guid: 0c5b6f096d4227f489ba104520d5ac51,
@@ -4120,7 +4122,6 @@ MonoBehaviour:
     type: 3}
   canvas: {fileID: 754881364168840010}
   headCanvas: {fileID: 7565646836376233789}
-  scoreController: {fileID: 1029147831}
 --- !u!1 &1553932617
 GameObject:
   m_ObjectHideFlags: 0
@@ -7103,18 +7104,6 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 4786884283586022685}
         m_TargetAssemblyTypeName: UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable,
           Unity.XR.Interaction.Toolkit
@@ -7166,7 +7155,8 @@ MonoBehaviour:
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   parentArea: {fileID: 0}
-  targetObjNames: []
+  targetObjNames:
+  - opm
 --- !u!135 &5212901024696679744
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7973,7 +7963,6 @@ MonoBehaviour:
     m_Reference: {fileID: -2258034137253681990, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   questController: {fileID: 1498194981}
-  distanceBetweenObjects: 2.5
   UI_popupPanel: {fileID: 697940945}
   UI_message: {fileID: 1909903561}
   popupState: 0
@@ -8282,5 +8271,5 @@ SceneRoots:
   - {fileID: 444182246}
   - {fileID: 348036071}
   - {fileID: 1455014222}
-  - {fileID: 127152226}
   - {fileID: 644604409}
+  - {fileID: 127152226}

@@ -11,6 +11,7 @@ namespace Seville
 
         [SerializeField] bool playOnStart = false;
         public UnityEvent AfterDialogFinish;
+        private bool isPlaying = false;
 
         private void Start()
         {
@@ -19,14 +20,20 @@ namespace Seville
 
         public void ShowQuiz()
         {
+            if (isPlaying) return;
+
             bool checkquestion = quizController.StartQuiz(mQuizContentList, QuizIsDone);
 
             if (!checkquestion) AfterDialogFinish?.Invoke();
+
+            isPlaying = true;
         }
 
         public void QuizIsDone()
         {
             AfterDialogFinish?.Invoke();
+
+            isPlaying = false;
         }
     }
 }
