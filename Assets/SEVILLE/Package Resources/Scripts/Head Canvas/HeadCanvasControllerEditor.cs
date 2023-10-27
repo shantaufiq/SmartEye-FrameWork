@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
+
 namespace Seville
 {
     [CustomEditor(typeof(HeadCanvasController))]
@@ -55,3 +57,4 @@ namespace Seville
         }
     }
 }
+#endif
