@@ -53,7 +53,7 @@ namespace Tproject.Quest
             DataManager asset = ScriptableObject.CreateInstance<DataManager>();
 
             // Tentukan di mana Anda ingin menyimpan asset DataManager ini.
-            AssetDatabase.CreateAsset(asset, "Assets/_Sandboxing/Scripts/Data Manager/MyDataManager.asset");
+            AssetDatabase.CreateAsset(asset, "Assets/SEVILLE/MyDataManager.asset");
             AssetDatabase.SaveAssets();
 
             return asset;

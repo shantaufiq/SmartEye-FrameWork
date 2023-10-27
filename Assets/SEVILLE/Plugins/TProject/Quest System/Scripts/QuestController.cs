@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Seville;
-using Seville.Sandbox;
 
 namespace Tproject.Quest
 {
@@ -14,7 +13,7 @@ namespace Tproject.Quest
         public QuestItem itemPrefabs;
         public Transform itemListParent;
         public GameObject questCanvas;
-        public PupupMessage popupMessage;
+        public NotificationMessage popupMessage;
         public Transform canvas;
         public HeadCanvasController headCanvas;
 
@@ -44,7 +43,7 @@ namespace Tproject.Quest
 
                 // if (temp.score > 0) scoreController.IncreaseScore(temp.score);
                 if (temp.score > 0) dataManager.IncreaseScore(temp.score);
-                headCanvas.ShowPopupMessage(dataTarget[index].doneMessage);
+                headCanvas.ShowNotificationMessage(dataTarget[index].doneMessage);
 
                 // DataManager.Instance.UpdateQuizItemDone(temp, index);
                 dataManager.UpdateQuizItemDone(temp, index);
