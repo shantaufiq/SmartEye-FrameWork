@@ -3330,7 +3330,7 @@ MonoBehaviour:
   playerHead: {fileID: 0}
   spawnDistance: 2.5
   maxDistance: 5
-  useQuestCanvas: 1
+  useQuestCanvas: 0
   questController: {fileID: 8802617899022576056}
   secondaryBtnAction:
     m_UseReference: 1
@@ -3345,7 +3345,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -2258034137253681990, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
-  useMenuCanvas: 1
+  useMenuCanvas: 0
   MenuCanvas: {fileID: 6474818842077140525}
   primaryBtnAction:
     m_UseReference: 1

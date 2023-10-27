@@ -2431,6 +2431,16 @@ PrefabInstance:
       propertyPath: playerHead
       value: 
       objectReference: {fileID: 1066965877}
+    - target: {fileID: 5919683706113841130, guid: a6dd1629ca00e624da2f11c86299ccc6,
+        type: 3}
+      propertyPath: useMenuCanvas
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919683706113841130, guid: a6dd1629ca00e624da2f11c86299ccc6,
+        type: 3}
+      propertyPath: useQuestCanvas
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7498301326706366720, guid: a6dd1629ca00e624da2f11c86299ccc6,
         type: 3}
       propertyPath: m_Name

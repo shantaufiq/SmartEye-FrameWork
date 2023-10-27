@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TriggerArea : MonoBehaviour
+namespace Seville
 {
-    public UnityEvent OnPlayerEnter;
-    public UnityEvent OnPlayerExit;
-
-    private void OnTriggerEnter(Collider other)
+    public class TriggerArea : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        public UnityEvent OnPlayerEnter;
+        public UnityEvent OnPlayerExit;
+
+        private void OnTriggerEnter(Collider other)
         {
-            OnPlayerEnter?.Invoke();
+            if (other.CompareTag("Player"))
+            {
+                OnPlayerEnter?.Invoke();
+            }
         }
-    }
 
-    public void CheckPlayer()
-    {
-        Debug.Log($"check player enter");
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        public void CheckPlayer()
         {
-            OnPlayerExit?.Invoke();
+            Debug.Log($"check player enter");
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                OnPlayerExit?.Invoke();
+            }
         }
     }
 }

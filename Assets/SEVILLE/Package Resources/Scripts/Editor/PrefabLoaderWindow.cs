@@ -106,6 +106,28 @@ namespace Seville
             }
         }
 
+        [MenuItem("GameObject/Seville/Create Project VR 3D", false, 10)]
+        private static void InstanceStarterProjectVR3D()
+        {
+            GameObject prefab1 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Environments/ENVIRONMENT AREA MANAGER VR 3D.prefab");
+            GameObject prefab2 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Audio/AUDIO MANAGER.prefab");
+            GameObject prefab3 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Character/CHARACTER CONTROLLER VR 3D.prefab");
+            GameObject prefab4 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Canvas/HEAD CANVAS.prefab");
+
+            if (prefab1 != null && prefab2 != null)
+            {
+                Camera cam = prefab3.GetComponentInChildren<Camera>();
+                HeadCanvasController head = prefab4.GetComponent<HeadCanvasController>();
+
+                if (cam != null && head != null)
+                {
+                    head.playerHead = cam.transform;
+
+                    Debug.Log($"Starter asset for project VR 3D has been added");
+                }
+            }
+        }
+
         private static GameObject AddPackage(string prefabPath)
         {
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);

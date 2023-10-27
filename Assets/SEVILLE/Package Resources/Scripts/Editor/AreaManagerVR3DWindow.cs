@@ -1,19 +1,17 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
-using System.Linq;
 
 namespace Seville
 {
-    public class EnvAreaHandlerWindow : EditorWindow
+    public class AreaManagerVR3DWindow : EditorWindow
     {
         private Vector2 scrollPos;
-        private EnvAreaHandler targetManager;
+        private EnvironmentAreaManagerVR3D targetManager;
 
-        public static void ShowWindow(EnvAreaHandler manager)
+        public static void ShowWindow(EnvironmentAreaManagerVR3D manager)
         {
-            EnvAreaHandlerWindow window = GetWindow<EnvAreaHandlerWindow>("Prefab Instantiator");
+            AreaManagerVR3DWindow window = GetWindow<AreaManagerVR3DWindow>("Prefab Instantiator");
             window.targetManager = manager;
         }
 
@@ -28,7 +26,11 @@ namespace Seville
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/VIDEO PLAYER CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/OBJECT (Cube-Base).prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/SOCKET INTERACTOR.prefab",
+                "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/DOOR INTERACTION.prefab",
+                "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/LADDER.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/POKE BUTTON.prefab",
+                "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/TELEPORTATION ANCHOR.prefab",
+                "Assets/SEVILLE/Package Resources/Prefabs/Logic/AREA TRIGGER.prefab",
             };
 
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos, false, false);
@@ -58,16 +60,16 @@ namespace Seville
                     obj.transform.SetParent(targetManager.transform);
 
                     // Mendapatkan komponen ChildHandler dari objek yang baru diinstansiasi
-                    EnvAreaHandler handler = obj.GetComponentInParent<EnvAreaHandler>();
+                    EnvironmentAreaManagerVR3D handler = obj.GetComponentInParent<EnvironmentAreaManagerVR3D>();
 
                     if (handler)
                     {
                         // Menambahkan handler ke dalam list
-                        targetManager.areaObjsList.Add(obj.gameObject);
+                        targetManager.propsList.Add(obj.gameObject);
                     }
                     else
                     {
-                        Debug.LogWarning("Objek yang diinstansiasi tidak memiliki komponen EnvAreaHandler.");
+                        Debug.LogWarning("Objek yang diinstansiasi tidak memiliki komponen EnvironmentAreaManagerVR3D.");
                     }
                 }
                 else
