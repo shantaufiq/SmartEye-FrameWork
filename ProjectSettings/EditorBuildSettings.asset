@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_Sandboxing/Scenes/Sample-Scene.unity
-    guid: c645e153f2c7f7d43a0e08563be8da4c
-  - enabled: 0
-    path: Assets/_Sandboxing/Scenes/Sample-Simulation-1.unity
-    guid: a7139c423d8995844a51298564e07290
   - enabled: 1
+    path: Assets/SEVILLE/Samples/Scene/Sample-Scene.unity
+    guid: c645e153f2c7f7d43a0e08563be8da4c
+  - enabled: 1
+    path: Assets/SEVILLE/Samples/Scene/Sample-Simulation-1.unity
+    guid: a7139c423d8995844a51298564e07290
+  - enabled: 0
     path: Assets/SEVILLE/Samples/Scene/VR 360 Photo.unity
     guid: e448a1853672cf24c890e2a3eb18ac99
   m_configObjects:
