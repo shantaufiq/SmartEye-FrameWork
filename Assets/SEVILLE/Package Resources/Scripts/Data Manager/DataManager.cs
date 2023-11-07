@@ -20,6 +20,7 @@ namespace Seville
 
         public List<QuestItem> questList = new List<QuestItem>();
         public int playerScore = 0;
+        public int maxScore;
 
         public void AddQuest(Sprite icon, string title, string description, bool isDone, string doneMessage, int score)
         {

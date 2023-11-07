@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 namespace Seville
 {
@@ -9,6 +9,8 @@ namespace Seville
     {
         public DataManager dataManager;
         public TextMeshProUGUI textScore;
+
+        public UnityEvent OnScoreFinished;
 
         private void Update()
         {
@@ -18,8 +20,16 @@ namespace Seville
 
         public void IncreaseScore(int val)
         {
+            if (IsScoreFinished())
+            {
+                Invoke(nameof(FinishScore), .2f);
+                return;
+            }
+
             dataManager.IncreaseScore(val);
         }
+
+        private void FinishScore() => OnScoreFinished.Invoke();
 
         public void DecreaseScore(int val)
         {
@@ -29,6 +39,22 @@ namespace Seville
         public void ResetScore()
         {
             dataManager.playerScore = 0;
+        }
+
+        public bool IsScoreFinished()
+        {
+            bool state = false;
+
+            if (dataManager.playerScore >= dataManager.maxScore)
+            {
+                state = true;
+            }
+            else
+            {
+                state = false;
+            }
+
+            return state;
         }
     }
 }
