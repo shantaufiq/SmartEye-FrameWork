@@ -1,51 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 using TMPro;
 using Microsoft.MixedReality.Toolkit.Experimental.UI;
 
-public class KeyboardController : MonoBehaviour
+namespace Seville
 {
-    public TMP_InputField inputField;
+    [System.Serializable]
+    public class StringKeyboardOutput : UnityEvent<string> { }
 
-    public float distance = 0.5f;
-    public float verticalOffset = -0.5f;
-
-    public Transform possitionCam;
-
-    void Start()
+    public class KeyboardController : MonoBehaviour
     {
-        inputField.onSelect.AddListener(x => OpenKeyboard());
-    }
+        public TMP_InputField inputField;
 
-    public void OpenKeyboard()
-    {
-        NonNativeKeyboard.Instance.InputField = inputField;
-        NonNativeKeyboard.Instance.PresentKeyboard(inputField.text);
+        public float distance = 0.5f;
+        public float verticalOffset = -0.5f;
 
-        Vector3 direction = possitionCam.forward;
-        direction.y = 0;
-        direction.Normalize();
+        public Transform possitionCam;
 
-        Vector3 targetPos = possitionCam.position + direction * distance + Vector3.up * verticalOffset;
-        NonNativeKeyboard.Instance.RepositionKeyboard(targetPos);
+        [Space]
+        public StringKeyboardOutput OnGetKeyboardOuput;
 
-        SetCaretColorAlpha(1);
+        void Start()
+        {
+            if (OnGetKeyboardOuput == null)
+                OnGetKeyboardOuput = new StringKeyboardOutput();
 
-        NonNativeKeyboard.Instance.OnClosed += Instance_OnClosed;
-    }
+            inputField.onSelect.AddListener(x => OpenKeyboard());
+        }
 
-    private void Instance_OnClosed(object sender, System.EventArgs a)
-    {
-        SetCaretColorAlpha(0);
-        NonNativeKeyboard.Instance.OnClosed -= Instance_OnClosed;
-    }
+        public void OpenKeyboard()
+        {
+            NonNativeKeyboard.Instance.InputField = inputField;
+            NonNativeKeyboard.Instance.PresentKeyboard(inputField.text);
 
-    public void SetCaretColorAlpha(float value)
-    {
-        inputField.customCaretColor = true;
-        Color caretColor = inputField.caretColor;
-        caretColor.a = value;
-        inputField.caretColor = caretColor;
+            Vector3 direction = possitionCam.forward;
+            direction.y = 0;
+            direction.Normalize();
+
+            Vector3 targetPos = possitionCam.position + direction * distance + Vector3.up * verticalOffset;
+            NonNativeKeyboard.Instance.RepositionKeyboard(targetPos);
+
+            SetCaretColorAlpha(1);
+
+            NonNativeKeyboard.Instance.OnClosed += Instance_OnClosed;
+        }
+
+        private void Instance_OnClosed(object sender, System.EventArgs a)
+        {
+            SetCaretColorAlpha(0);
+            NonNativeKeyboard.Instance.OnClosed -= Instance_OnClosed;
+        }
+
+        public void SetCaretColorAlpha(float value)
+        {
+            inputField.customCaretColor = true;
+            Color caretColor = inputField.caretColor;
+            caretColor.a = value;
+            inputField.caretColor = caretColor;
+        }
+
+        public void OnClickSubmit()
+        {
+            string msg = inputField.text.ToString();
+
+            // Debug.Log($"player submit text: '{msg}'");
+
+            if (OnGetKeyboardOuput != null)
+                OnGetKeyboardOuput.Invoke(msg);
+        }
     }
 }
