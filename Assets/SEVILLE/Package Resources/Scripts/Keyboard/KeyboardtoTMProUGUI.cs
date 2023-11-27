@@ -12,7 +12,7 @@ namespace Seville
             if (outputTargetText != null)
             {
                 outputTargetText.text = message;
-                Debug.Log("Event received with message: " + message);
+                // Debug.Log("Event received with message: " + message);
             }
             else
             {

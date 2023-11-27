@@ -33,12 +33,17 @@ namespace Seville
             NonNativeKeyboard.Instance.InputField = inputField;
             NonNativeKeyboard.Instance.PresentKeyboard(inputField.text);
 
-            Vector3 direction = possitionCam.forward;
-            direction.y = 0;
-            direction.Normalize();
+            if (possitionCam != null)
+            {
+                Vector3 direction = possitionCam.forward;
+                direction.y = 0;
+                direction.Normalize();
 
-            Vector3 targetPos = possitionCam.position + direction * distance + Vector3.up * verticalOffset;
-            NonNativeKeyboard.Instance.RepositionKeyboard(targetPos);
+                Vector3 targetPos = possitionCam.position + direction * distance + Vector3.up * verticalOffset;
+                NonNativeKeyboard.Instance.RepositionKeyboard(targetPos);
+
+                Debug.LogWarning($"The keyboard controller does not find the value of positionCam, enter the transform camera origin into a variable");
+            }
 
             SetCaretColorAlpha(1);
 
