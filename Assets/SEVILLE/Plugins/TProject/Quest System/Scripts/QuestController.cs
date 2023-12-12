@@ -7,9 +7,9 @@ namespace Tproject.Quest
 {
     public class QuestController : MonoBehaviour
     {
-        public DataManager dataManager;
-        public List<DataManager.QuestItem> toDoList;
         public bool isPlayOnStart;
+        public DataManager dataManager;
+        [HideInInspector] public List<DataManager.QuestItem> toDoList;
         public QuestItem itemPrefabs;
         public Transform itemListParent;
         public GameObject questCanvas;
@@ -17,17 +17,18 @@ namespace Tproject.Quest
         public Transform canvas;
         public HeadCanvasController headCanvas;
 
-        // public ScoreController scoreController;
+        public ScoreController scoreController;
 
         private void Start()
         {
+            this.dataManager = headCanvas.dataManager;
+
             if (isPlayOnStart)
                 PrintItems();
         }
 
         public void FinishItem(int index)
         {
-            // var dataTarget = DataManager.Instance.GetQuestData();
             var dataTarget = dataManager.GetQuestData();
 
             if (index > dataTarget.Count - 1)
@@ -41,8 +42,7 @@ namespace Tproject.Quest
                 DataManager.QuestItem temp = dataTarget[index];
                 temp.isDone = true;
 
-                // if (temp.score > 0) scoreController.IncreaseScore(temp.score);
-                if (temp.score > 0) dataManager.IncreaseScore(temp.score);
+                if (scoreController) scoreController.IncreaseScore(temp.score);
                 headCanvas.ShowNotificationMessage(dataTarget[index].doneMessage);
 
                 // DataManager.Instance.UpdateQuizItemDone(temp, index);
@@ -57,10 +57,8 @@ namespace Tproject.Quest
         {
             toDoList.Clear();
 
-            // if (toDoList.Count == DataManager.Instance.GetQuestData().Count) return;
             if (toDoList.Count == dataManager.GetQuestData().Count) return;
 
-            // foreach (var item in DataManager.Instance.GetQuestData())
             foreach (var item in dataManager.GetQuestData())
             {
                 toDoList.Add(item);

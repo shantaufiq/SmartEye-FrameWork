@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Seville
 {
 #if UNITY_EDITOR
-    [CustomEditor(typeof(ScoreController))]
+    // [CustomEditor(typeof(ScoreController))]
     public class ScoreControllerEditor : Editor
     {
         SerializedProperty dataManagerProperty;

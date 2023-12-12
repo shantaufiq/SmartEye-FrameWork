@@ -19,8 +19,8 @@ namespace Seville
         }
 
         public List<QuestItem> questList = new List<QuestItem>();
-        public int playerScore = 0;
-        public int maxScore;
+        public int currentPlayerScore = 0;
+        public int playerMaxScore;
 
         public void AddQuest(Sprite icon, string title, string description, bool isDone, string doneMessage, int score)
         {
@@ -35,21 +35,6 @@ namespace Seville
             };
 
             questList.Add(newQuest);
-        }
-
-        public void IncreaseScore(int amount)
-        {
-            playerScore += amount;
-        }
-
-        public void DecreaseScore(int val)
-        {
-            playerScore -= val;
-        }
-
-        public void ResetScore()
-        {
-            playerScore = 0;
         }
 
         public List<QuestItem> GetQuestData()

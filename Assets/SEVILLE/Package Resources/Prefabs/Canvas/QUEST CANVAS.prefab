@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 171636981739620083}
   - component: {fileID: 6018674507732488569}
   m_Layer: 0
-  m_Name: Title (1)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1395,7 +1395,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataManager: {fileID: 11400000, guid: a6da9c5a4e08af14ebbe6ff0afa40165, type: 2}
-  textScore: {fileID: 6018674507732488569}
+  headCanvas: {fileID: 0}
+  score: 0
+  scoreMax: 0
+  scoreText: {fileID: 0}
+  OnScoreFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5136971750296029335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,6 +1532,7 @@ MonoBehaviour:
     type: 3}
   canvas: {fileID: 8921841675532373111}
   headCanvas: {fileID: 0}
+  scoreController: {fileID: 0}
 --- !u!1 &7166805791140899094
 GameObject:
   m_ObjectHideFlags: 0
