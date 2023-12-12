@@ -29,6 +29,7 @@ namespace Seville
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/OBJECT (Cube-Base).prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/SOCKET INTERACTOR.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/POKE BUTTON.prefab",
+                "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/PARTIAL QUEST CANVAS.prefab",
             };
 
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos, false, false);
