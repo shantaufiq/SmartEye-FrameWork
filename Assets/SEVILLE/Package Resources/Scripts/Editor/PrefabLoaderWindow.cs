@@ -91,6 +91,7 @@ namespace Seville
             GameObject prefab1 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Character/CHARACTER CONTROLLER VR 360.prefab");
             GameObject prefab2 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Environments/ENVIRONMENT MANAGER VR 360.prefab");
             GameObject prefab3 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Audio/AUDIO MANAGER.prefab");
+            GameObject prefab4 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Canvas/HEAD CANVAS.prefab");
 
             if (prefab1 != null && prefab2 != null)
             {
@@ -102,6 +103,14 @@ namespace Seville
                     env.characterOrigin = origin;
 
                     Debug.Log($"Starter asset for project VR 360 has been added");
+                }
+
+                Camera cam = prefab1.GetComponentInChildren<Camera>();
+                HeadCanvasController head = prefab4.GetComponent<HeadCanvasController>();
+
+                if (cam != null && head != null)
+                {
+                    head.playerHead = cam.transform;
                 }
             }
         }
