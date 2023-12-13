@@ -19,7 +19,9 @@ namespace Seville
             SerializedProperty spawnDistanceProp = serializedObject.FindProperty("spawnDistance");
             SerializedProperty maxDistanceProp = serializedObject.FindProperty("maxDistance");
             SerializedProperty useQuestCanvasProp = serializedObject.FindProperty("useQuestCanvas");
+            SerializedProperty dataManagerProp = serializedObject.FindProperty("dataManager");
             SerializedProperty questControllerProp = serializedObject.FindProperty("questController");
+            SerializedProperty scoreControllerProp = serializedObject.FindProperty("scoreController");
             SerializedProperty secondaryBtnActionProp = serializedObject.FindProperty("secondaryBtnAction");
             SerializedProperty useMenuCanvasProp = serializedObject.FindProperty("useMenuCanvas");
             SerializedProperty MenuCanvasProp = serializedObject.FindProperty("MenuCanvas");
@@ -37,7 +39,25 @@ namespace Seville
             // Jika useQuestCanvas bernilai true, tampilkan questController dan secondaryBtnAction
             if (myScript.useQuestCanvas)
             {
+                EditorGUILayout.BeginVertical();
+                EditorGUILayout.PropertyField(dataManagerProp, true);
+
+                if (dataManagerProp.objectReferenceValue == null)
+                {
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.FlexibleSpace(); // Ini akan mendorong tombol ke kanan
+                    if (GUILayout.Button("Create DataManager", GUILayout.Width(250), GUILayout.Height(20)))
+                    {
+                        DataManager newDataManager = CreateDataManagerAsset();
+                        dataManagerProp.objectReferenceValue = newDataManager;
+                    }
+                    EditorGUILayout.EndHorizontal();
+                }
+                EditorGUILayout.EndVertical();
+                EditorGUILayout.Space(15f);
+
                 EditorGUILayout.PropertyField(questControllerProp);
+                EditorGUILayout.PropertyField(scoreControllerProp);
                 EditorGUILayout.PropertyField(secondaryBtnActionProp);
             }
 
@@ -54,6 +74,17 @@ namespace Seville
 
             // Terapkan perubahan ke objek asli
             serializedObject.ApplyModifiedProperties();
+        }
+
+        private DataManager CreateDataManagerAsset()
+        {
+            DataManager asset = ScriptableObject.CreateInstance<DataManager>();
+
+            // Tentukan di mana Anda ingin menyimpan asset DataManager ini.
+            AssetDatabase.CreateAsset(asset, "Assets/SEVILLE/My Data Manager/New Data Manager.asset");
+            AssetDatabase.SaveAssets();
+
+            return asset;
         }
     }
 }

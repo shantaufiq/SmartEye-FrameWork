@@ -15,7 +15,9 @@ namespace Seville
 
         [Header("Quest Canvas Components")]
         public bool useQuestCanvas;
+        public DataManager dataManager;
         public QuestController questController;
+        public ScoreController scoreController;
         public InputActionProperty secondaryBtnAction;
         float distanceBetweenObjects;
 

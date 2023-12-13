@@ -46,4 +46,5 @@ MonoBehaviour:
     isDone: 0
     doneMessage: You have been finished this simulation
     score: 10
-  playerScore: 0
+  currentPlayerScore: 0
+  playerMaxScore: 20

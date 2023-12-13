@@ -5,7 +5,7 @@ using Seville;
 namespace Tproject.Quest
 {
 #if UNITY_EDITOR
-    [CustomEditor(typeof(QuestController))]
+    // [CustomEditor(typeof(QuestController))]
     public class QuestControllerEditor : Editor
     {
         SerializedProperty dataManagerProperty;
@@ -18,12 +18,9 @@ namespace Tproject.Quest
 
         public override void OnInspectorGUI()
         {
-            // Render properti lain dengan DrawDefaultInspector
+            // Edit add dataManager
             serializedObject.Update();
 
-            // Susun GUI secara manual sesuai keinginan Anda:
-
-            // 1. Render properti dataManager dan tombol
             EditorGUILayout.BeginVertical();
             EditorGUILayout.PropertyField(dataManagerProperty, true);
 
@@ -53,7 +50,7 @@ namespace Tproject.Quest
             DataManager asset = ScriptableObject.CreateInstance<DataManager>();
 
             // Tentukan di mana Anda ingin menyimpan asset DataManager ini.
-            AssetDatabase.CreateAsset(asset, "Assets/SEVILLE/MyDataManager.asset");
+            AssetDatabase.CreateAsset(asset, "Assets/SEVILLE/My Data Manager/New Data Manager.asset");
             AssetDatabase.SaveAssets();
 
             return asset;

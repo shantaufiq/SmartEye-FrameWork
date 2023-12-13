@@ -2,72 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Seville;
+using UnityEngine.Events;
+using System.Linq;
 
 namespace Tproject.Quest
 {
-    public class QuestController : MonoBehaviour
+    public class PartialQuestController : MonoBehaviour
     {
+        public List<ItemFormat> toDoList;
+
+        [System.Serializable]
+        public struct ItemFormat
+        {
+            public Sprite iconSprite;
+            public string title;
+            [TextArea]
+            public string description;
+            public bool isDone;
+            public string doneMessage;
+        }
+
         public bool isPlayOnStart;
-        public DataManager dataManager;
-        [HideInInspector] public List<DataManager.QuestItem> toDoList;
         public QuestItem itemPrefabs;
         public Transform itemListParent;
         public GameObject questCanvas;
-        public NotificationMessage popupMessage;
-        public Transform canvas;
+
+        [Tooltip("Insert the 'HeadCanvasController' component found in the Head Canvas game object.")]
         public HeadCanvasController headCanvas;
 
-        public ScoreController scoreController;
+        [Space]
+        public UnityEvent OnQuestFinished;
 
         private void Start()
         {
-            this.dataManager = headCanvas.dataManager;
-
             if (isPlayOnStart)
                 PrintItems();
         }
 
-        public void FinishItem(int index)
-        {
-            var dataTarget = dataManager.GetQuestData();
-
-            if (index > dataTarget.Count - 1)
-            {
-                Debug.LogWarning($"number {index} is out of todolist count");
-                return;
-            }
-
-            if (!dataTarget[index].isDone)
-            {
-                DataManager.QuestItem temp = dataTarget[index];
-                temp.isDone = true;
-
-                if (scoreController) scoreController.IncreaseScore(temp.score);
-                headCanvas.ShowNotificationMessage(dataTarget[index].doneMessage);
-
-                // DataManager.Instance.UpdateQuizItemDone(temp, index);
-                dataManager.UpdateQuizItemDone(temp, index);
-            }
-
-            GetTodoList();
-            // PrintItems();
-        }
-
-        private void GetTodoList()
-        {
-            toDoList.Clear();
-
-            if (toDoList.Count == dataManager.GetQuestData().Count) return;
-
-            foreach (var item in dataManager.GetQuestData())
-            {
-                toDoList.Add(item);
-            }
-        }
-
         public void PrintItems()
         {
-            GetTodoList();
+            if (toDoList.Count == 0)
+            {
+                Debug.LogWarning($"toDoList.Count is {toDoList.Count}, please fill the list");
+                return;
+            }
 
             StartCoroutine(PrintQuestItem());
         }
@@ -104,17 +82,41 @@ namespace Tproject.Quest
             }
         }
 
+        public void FinishItem(int index)
+        {
+            var dataTarget = toDoList;
+
+            if (index > dataTarget.Count - 1)
+            {
+                Debug.LogWarning($"number {index} is out of todolist count");
+                return;
+            }
+
+            if (!dataTarget[index].isDone)
+            {
+                var temp = dataTarget[index];
+                temp.isDone = true;
+
+                if (headCanvas)
+                    headCanvas.ShowNotificationMessage(dataTarget[index].doneMessage);
+                else Debug.LogWarning($"Canvas notification hasn't been assigned");
+
+                toDoList[index] = temp;
+            }
+
+            if (toDoList.All(item => item.isDone))
+            {
+                OnQuestFinished.Invoke();
+            }
+
+            PrintItems();
+        }
+
         IEnumerator DestroyTemp(GameObject go)
         {
             yield return new WaitUntil(() => go != null);
             Destroy(go);
             // Debug.Log($"destroy {go}");
-        }
-
-        public void ShowMessage(string msg)
-        {
-            var popup = Instantiate(popupMessage, canvas);
-            popup.textMessage.text = msg;
         }
 
         public void CloseQuestCanvas()

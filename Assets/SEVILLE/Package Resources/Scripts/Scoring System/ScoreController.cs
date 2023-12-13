@@ -8,53 +8,101 @@ namespace Seville
     public class ScoreController : MonoBehaviour
     {
         public DataManager dataManager;
-        public TextMeshProUGUI textScore;
-
+        public HeadCanvasController headCanvas;
+        [SerializeField] private int score;
+        private int scoreMax;
+        public TextMeshProUGUI scoreText;
+        private bool isScoreMaxReached = false;
+        [Space]
         public UnityEvent OnScoreFinished;
 
-        private void Update()
+        private void Start()
         {
-            if (dataManager)
-                textScore.text = dataManager.playerScore.ToString();
+            if (headCanvas)
+            {
+                GetDataManager();
+            }
+        }
+
+        void GetDataManager()
+        {
+            dataManager = headCanvas.dataManager;
+            score = dataManager.currentPlayerScore;
+            scoreMax = dataManager.playerMaxScore;
         }
 
         public void IncreaseScore(int val)
         {
-            if (IsScoreFinished())
+            if (!dataManager)
+                GetDataManager();
+
+            if (isScoreMaxReached)
             {
-                Invoke(nameof(FinishScore), .2f);
+                Debug.Log("Score max reached, cannot add more score.");
                 return;
             }
 
-            dataManager.IncreaseScore(val);
+            score += val;
+
+            UpdateScore();
+            CheckScore();
         }
 
         private void FinishScore() => OnScoreFinished.Invoke();
 
         public void DecreaseScore(int val)
         {
-            dataManager.playerScore -= val;
+            if (!dataManager)
+                GetDataManager();
+
+            if (isScoreMaxReached)
+            {
+                Debug.Log("Score max reached, cannot subtract score.");
+                return;
+            }
+
+            score -= val;
+            if (score < 0)
+            {
+                score = 0;
+            }
+
+            UpdateScore();
+            CheckScore();
         }
 
         public void ResetScore()
         {
-            dataManager.playerScore = 0;
+            this.score = 0;
+
+            UpdateScore();
         }
 
-        public bool IsScoreFinished()
+        private void CheckScore()
         {
-            bool state = false;
-
-            if (dataManager.playerScore >= dataManager.maxScore)
+            if (score >= scoreMax && !isScoreMaxReached)
             {
-                state = true;
+                isScoreMaxReached = true;
+                Invoke(nameof(FinishScore), .2f);
             }
-            else
+        }
+
+        public int GetCurrentScore()
+        {
+            return score;
+        }
+
+        private void UpdateScore()
+        {
+            if (dataManager)
             {
-                state = false;
+                dataManager.currentPlayerScore = this.score;
             }
 
-            return state;
+            if (scoreText != null)
+            {
+                scoreText.text = "Score: " + this.score.ToString();
+            }
         }
     }
 }
