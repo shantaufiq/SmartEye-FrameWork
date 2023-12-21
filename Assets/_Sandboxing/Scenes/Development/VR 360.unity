@@ -7818,6 +7818,7 @@ MonoBehaviour:
   sfxSounds: []
   musicSource: {fileID: 1239989978}
   sfxSource: {fileID: 1239989977}
+  videoSource: {fileID: 0}
 --- !u!4 &1239989980
 Transform:
   m_ObjectHideFlags: 0

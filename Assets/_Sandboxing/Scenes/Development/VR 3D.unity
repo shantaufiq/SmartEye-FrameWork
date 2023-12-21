@@ -4775,8 +4775,6 @@ MonoBehaviour:
   propsList:
   - {fileID: 2080942155}
   - {fileID: 656388017}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &568362587
 Transform:
   m_ObjectHideFlags: 0
@@ -5196,7 +5194,7 @@ PrefabInstance:
     - target: {fileID: 1866286100689221146, guid: 7d4d16f09584a7449949b34ff4da9c4a,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2904040861851418335, guid: 7d4d16f09584a7449949b34ff4da9c4a,
         type: 3}
@@ -5298,10 +5296,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6218654381595266407, guid: 7d4d16f09584a7449949b34ff4da9c4a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8403411804582243359, guid: 7d4d16f09584a7449949b34ff4da9c4a,
         type: 3}
       propertyPath: m_Name
       value: VIDEO PLAYER CANVAS
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403411804582243359, guid: 7d4d16f09584a7449949b34ff4da9c4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

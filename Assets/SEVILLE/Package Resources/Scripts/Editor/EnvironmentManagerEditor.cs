@@ -15,6 +15,8 @@ namespace Seville
 
             EnvironmentManager manager = (EnvironmentManager)target;
 
+            manager.EnvAreaHandlers.RemoveAll(item => item == null);
+
             if (GUILayout.Button("Add New Area", SevilleStyleEditor.GreenButton))
             {
                 manager.AddNewArea();
