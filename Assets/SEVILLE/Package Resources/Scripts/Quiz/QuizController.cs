@@ -162,7 +162,7 @@ namespace Seville
             {
                 quizContainer.SetActive(false);
                 contensStaging.Clear();
-                quizFinishToHandler?.Invoke();
+
 
                 StartCoroutine(nameof(ShowScore));
             }
@@ -176,7 +176,15 @@ namespace Seville
 
             yield return new WaitForSeconds(3f);
 
+            quizFinishToHandler?.Invoke();
             panelScore.SetActive(false);
+        }
+
+        public void ResetQuiz()
+        {
+            _currentIndex = 0;
+            scoreTrue = 0;
+            totalScore = 0;
         }
     }
 }
