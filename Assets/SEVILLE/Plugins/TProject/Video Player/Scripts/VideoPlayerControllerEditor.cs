@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEditor;
-using TProject;
 
 namespace TProject
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(VideoPlayerController))]
     public class VideoPlayerControllerEditor : Editor
     {
@@ -33,4 +33,5 @@ namespace TProject
             serializedObject.ApplyModifiedProperties();
         }
     }
+#endif
 }
