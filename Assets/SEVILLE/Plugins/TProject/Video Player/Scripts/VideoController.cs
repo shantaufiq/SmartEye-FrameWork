@@ -65,14 +65,14 @@ namespace TProject
                 pauseButton.SetActive(true);
                 playButton.SetActive(false);
 
-                AudioManager.Instance.musicSource.mute = true;
+                AudioManager.Instance.MuteMusic();
             }
             else
             {
                 playButton.SetActive(true);
                 pauseButton.SetActive(false);
 
-                AudioManager.Instance.musicSource.mute = false;
+                AudioManager.Instance.UnmuteMusic();
             }
         }
 
@@ -96,14 +96,10 @@ namespace TProject
             if (videoPlayer.isPlaying)
             {
                 videoPlayer.Pause();
-
-
             }
             else
             {
                 videoPlayer.Play();
-
-
             }
         }
 

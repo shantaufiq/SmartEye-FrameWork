@@ -12,28 +12,8 @@ namespace Seville
 
         public void SetUpVolume()
         {
-            musicSlider.value = AudioManager.Instance.GetMusicVolume();
-            sfxSlider.value = AudioManager.Instance.GetSfxVolume();
-        }
-
-        public void OnDragChangeMusicVolume()
-        {
-            AudioManager.Instance.ChangeMusicVolume(musicSlider.value);
-        }
-
-        public void OnDragChangeSfxVolume()
-        {
-            AudioManager.Instance.ChangeSfxVolume(sfxSlider.value);
-        }
-
-        public void OnClickToggleMusic()
-        {
-            AudioManager.Instance.ToggleMusic();
-        }
-
-        public void OnClickToggleSFX()
-        {
-            AudioManager.Instance.ToggleSFX();
+            musicSlider.value = AudioManager.Instance.GetMasterVolume();
+            sfxSlider.value = AudioManager.Instance.GetSFXVolume();
         }
 
         public void QuitApplication()
