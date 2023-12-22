@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 391232763587412229}
   - component: {fileID: 5846401954852375672}
   m_Layer: 0
-  m_Name: AREA TRIGGER
+  m_Name: (LOGIC) AREA TRIGGER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

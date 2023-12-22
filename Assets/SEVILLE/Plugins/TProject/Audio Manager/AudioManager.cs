@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
 
 namespace Tproject.AudioManager
 {
@@ -131,6 +128,7 @@ namespace Tproject.AudioManager
             }
 
             musicSource.Stop();
+            // musicSource.mute = true;
             musicSource.volume = startVolume;
         }
 
@@ -138,7 +136,9 @@ namespace Tproject.AudioManager
         {
             float targetVolume = musicSource.volume;
             musicSource.volume = 0;
-            musicSource.Play();
+            musicSource.mute = false;
+            if (!musicSource.isPlaying)
+                musicSource.Play();
 
             while (musicSource.volume < targetVolume)
             {

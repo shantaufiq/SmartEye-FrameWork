@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: SmartEye
-  productName: Seville Plugin
+  companyName: Smarteye
+  productName: Seville Plugin Feature Test
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -133,11 +133,8 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 1.1
-  preloadedAssets:
-  - {fileID: 980876936788748373, guid: bac2416cc8db4724792ec958001884db, type: 2}
-  - {fileID: 11400000, guid: a1c323a7a392fa846bd4ca11f10d2ab7, type: 2}
-  - {fileID: 6482851652689414917, guid: 1bdca444e017f2440b8044835e89c435, type: 2}
+  bundleVersion: 2.1
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

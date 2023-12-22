@@ -22,7 +22,7 @@ namespace TProject
         public GameObject controllerGroup;
         public GameObject playButton;
         public GameObject pauseButton;
-        private AudioManager audioManager;
+        public AudioManager audioManager;
 
         private static List<VideoPlayerController> controllers = new List<VideoPlayerController>();
 
@@ -40,16 +40,24 @@ namespace TProject
         {
             videoPlayer.loopPointReached += CheckEnd;
 
-            if (audioManager == null) audioManager = AudioManager.Instance;
+            if (AudioManager.Instance != null) audioManager = AudioManager.Instance;
             else Debug.LogWarning("please add Audio Manager for the audio video output");
 
-            if (audioManager != null)
+            videoPlayer.clip = videoClip;
+
+            Invoke("GetAudioSource", .5f);
+        }
+
+        void GetAudioSource()
+        {
+            if (AudioManager.Instance != null)
             {
+                AudioSource videoAudioSource = AudioManager.Instance.videoSource;
+
                 videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
-                videoPlayer.SetTargetAudioSource(0, audioManager.videoSource);
+                videoPlayer.SetTargetAudioSource(0, videoAudioSource);
             }
 
-            videoPlayer.clip = videoClip;
         }
 
         private void Update()
@@ -143,12 +151,14 @@ namespace TProject
             {
                 videoPlayer.Pause();
                 audioManager.musicSource.mute = false;
+                // AudioManager.Instance.musicSource.mute = false;
             }
             else
             {
                 // videoPlayer.Play();
                 PlayVideo();
                 audioManager.musicSource.mute = true;
+                // AudioManager.Instance.musicSource.mute = true;
             }
         }
 

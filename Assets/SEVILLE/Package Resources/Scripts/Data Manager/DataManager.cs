@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Seville
 {
-    [CreateAssetMenu(fileName = "DataManager", menuName = "Custom/DataManager", order = 1)]
+    // [CreateAssetMenu(fileName = "DataManager", menuName = "Seville/DataManager", order = 1)]
     public class DataManager : ScriptableObject
     {
         [System.Serializable]

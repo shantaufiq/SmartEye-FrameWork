@@ -20,16 +20,15 @@ namespace Seville
         private void OnGUI()
         {
             string[] prefabPaths = {
-                "Assets/SEVILLE/Package Resources/Prefabs/Canvas/MENU CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/NAVIGATION CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/POPUP CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/QUIZ CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/SCORE CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/VIDEO PLAYER CANVAS.prefab",
+                "Assets/SEVILLE/Package Resources/Prefabs/Canvas/PARTIAL QUEST CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/OBJECT (Cube-Base).prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/SOCKET INTERACTOR.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/POKE BUTTON.prefab",
-                "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/PARTIAL QUEST CANVAS.prefab",
             };
 
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos, false, false);
