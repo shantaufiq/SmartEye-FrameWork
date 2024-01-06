@@ -20,6 +20,9 @@ Smarteye plugin is an add-on that supports developers in creating virtual realit
 - Incorporate TextMeshProUGUI.
 - Adopt the Universal Render Pipeline.
 
+## READ DOCUMENTATION
+https://autumn-football-3d5.notion.site/Seville-Smarteye-Virtual-Learning-Plugin-Documentation-7b364fce0f134b979f2adf5882aa4723?pvs=4
+
 
 
 

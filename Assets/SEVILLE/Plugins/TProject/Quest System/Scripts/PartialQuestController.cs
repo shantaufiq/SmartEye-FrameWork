@@ -36,10 +36,11 @@ namespace Tproject.Quest
         private void Start()
         {
             if (isPlayOnStart)
-                PrintItems();
+                OpenQuest();
+            else CloseQuestCanvas();
         }
 
-        public void PrintItems()
+        public void OpenQuest()
         {
             if (toDoList.Count == 0)
             {
@@ -109,7 +110,7 @@ namespace Tproject.Quest
                 OnQuestFinished.Invoke();
             }
 
-            PrintItems();
+            OpenQuest();
         }
 
         IEnumerator DestroyTemp(GameObject go)
@@ -122,7 +123,14 @@ namespace Tproject.Quest
         public void CloseQuestCanvas()
         {
             questCanvas.SetActive(false);
-            toDoList.Clear();
+
+            var checker = toDoList.Exists((val) => val.isDone == false);
+
+            if (!checker)
+            {
+                toDoList.Clear();
+                Debug.LogWarning($"todo list has been done");
+            }
         }
     }
 }

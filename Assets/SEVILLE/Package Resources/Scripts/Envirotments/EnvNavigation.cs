@@ -7,14 +7,15 @@ namespace Seville
 {
     public class EnvNavigation : MonoBehaviour
     {
-        public void OnClickChangeEnvirontment(int index)
+        public int targetNextSceneOrArea;
+        public void OnClickChangeAreaVR360()
         {
-            EnvironmentManager.Instance.ChangeAreaByIndex(index);
+            EnvironmentManager.Instance.StartAreaByIndex(targetNextSceneOrArea);
         }
 
-        public void ChangeScene(int sceneId)
+        public void OnClickChangeScene()
         {
-            SceneManager.LoadScene(sceneId);
+            SceneManager.LoadScene(targetNextSceneOrArea);
         }
     }
 }

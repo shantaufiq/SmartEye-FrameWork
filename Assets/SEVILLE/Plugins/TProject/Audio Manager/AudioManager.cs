@@ -1,159 +1,148 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
 
 namespace Tproject.AudioManager
 {
-    // Creator Instagram: @shantaufiq
-
     public class AudioManager : MonoBehaviour
     {
         public static AudioManager Instance;
 
         public Sound[] musicSounds, sfxSounds;
-        public AudioSource musicSource, sfxSource;
+        public AudioSource musicSource, sfxSource, videoSource;
+
+        private Coroutine fadeCoroutine;
 
         private void Awake()
         {
-            if (Instance == null)
+            if (Instance != null && Instance != this)
             {
-                Instance = this;
-                DontDestroyOnLoad(this.gameObject);
+                Destroy(gameObject);
+                return;
             }
-            else
-            {
-                Destroy(this.gameObject);
-            }
+
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         private void Start()
         {
-            PlayMusic("Theme");
+            PlayBackgroundMusic("Theme");
         }
 
-        public void PlayMusicDefault(string name)
-        {
-            Sound s = Array.Find(musicSounds, (x) => x.name == name);
-
-            if (s == null) Debug.Log($"{name} isn't available");
-            else
-            {
-                musicSource.clip = s.clip;
-                musicSource.Play();
-            }
-        }
-
-        public void PlayMusic(string name)
-        {
-            Sound s = Array.Find(musicSounds, (x) => x.name == name);
-
-            if (s == null) Debug.Log($"{name} isn't available");
-            else
-            {
-                musicSource.clip = s.clip;
-                musicSource.Play();
-            }
-        }
-
-        public void PlayMusic(AudioClip clip)
-        {
-            musicSource.clip = clip;
-            musicSource.Play();
-        }
-
-        public void ChangeMusicVolume(float volume)
-        {
-            musicSource.volume = volume;
-        }
-
-        public void PlaySFX(string name)
-        {
-            Sound s = Array.Find(sfxSounds, (x) => x.name == name);
-
-            if (s == null) Debug.Log($"{name} isn't available");
-            else
-            {
-                sfxSource.PlayOneShot(s.clip);
-            }
-        }
-
-        public void PlaySFX(AudioClip clip)
-        {
-            sfxSource.PlayOneShot(clip);
-        }
-
-        public void StopSFX()
-        {
-            sfxSource.Stop();
-        }
-
-        public void ToggleMusic()
-        {
-            musicSource.mute = !musicSource.mute;
-        }
-
-        public void UnmuteMusic()
-        {
-            musicSource.mute = false;
-        }
-
-        public void ToggleSFX()
-        {
-            sfxSource.mute = !sfxSource.mute;
-        }
-
-        public void ChangeSfxVolume(float volume)
-        {
-            sfxSource.volume = volume;
-        }
-
-        public float GetMusicVolume()
+        public float GetMasterVolume()
         {
             return musicSource.volume;
         }
 
-        public float GetSfxVolume()
+        public float GetSFXVolume()
         {
             return sfxSource.volume;
         }
 
-        public void TransitionToNewMusic(string name, float transitionTime)
+        public void SetMasterVolume(float volume)
         {
-            Sound s = Array.Find(sfxSounds, (x) => x.name == name);
+            musicSource.volume = volume;
+            videoSource.volume = volume;
+        }
 
-            if (s == null) Debug.Log($"{name} isn't available");
-            else
+        private Sound FindSound(string name, Sound[] sounds)
+        {
+            foreach (var sound in sounds)
             {
-                StartCoroutine(TransitionMusicCoroutine(s.clip, transitionTime));
+                if (sound.name == name)
+                {
+                    return sound;
+                }
+            }
+
+            Debug.LogWarning($"{name} isn't available");
+            return null;
+        }
+
+        public void PlayBackgroundMusic(string name)
+        {
+            Sound sound = FindSound(name, musicSounds);
+            if (sound != null)
+            {
+                musicSource.clip = sound.clip;
+                musicSource.loop = true;
+                musicSource.Play();
             }
         }
 
-        public void TransitionToNewMusic(AudioClip clip, float transitionTime)
+        public void PlaySFX(string name)
         {
-            StartCoroutine(TransitionMusicCoroutine(clip, transitionTime));
+            Sound sound = FindSound(name, sfxSounds);
+            if (sound != null)
+            {
+                sfxSource.PlayOneShot(sound.clip);
+            }
         }
 
-        private IEnumerator TransitionMusicCoroutine(AudioClip clip, float transitionTime)
+        public void MuteMusic()
+        {
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+            }
+
+            fadeCoroutine = StartCoroutine(FadeOutMusic(.5f));
+        }
+
+        public void UnmuteMusic()
+        {
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+            }
+
+            fadeCoroutine = StartCoroutine(FadeInMusic(1f));
+        }
+
+        public void StartTransitionToNewMusic(AudioClip newClip, float transitionTime)
+        {
+            StartCoroutine(TransitionMusicCoroutine(newClip, transitionTime));
+        }
+
+        public void StartTransitionToNewMusic(string name, float transitionTime)
+        {
+            Sound sound = FindSound(name, musicSounds);
+
+            StartCoroutine(TransitionMusicCoroutine(sound.clip, transitionTime));
+        }
+
+        private IEnumerator TransitionMusicCoroutine(AudioClip newClip, float transitionTime)
+        {
+            yield return StartCoroutine(FadeOutMusic(transitionTime));
+            musicSource.clip = newClip;
+            yield return StartCoroutine(FadeInMusic(transitionTime));
+        }
+
+        private IEnumerator FadeOutMusic(float time)
         {
             float startVolume = musicSource.volume;
-
-            for (float t = 0; t < transitionTime; t += Time.deltaTime)
+            while (musicSource.volume > 0)
             {
-                musicSource.volume = Mathf.Lerp(startVolume, 0, t / transitionTime);
+                musicSource.volume -= startVolume * Time.deltaTime / time;
                 yield return null;
             }
 
             musicSource.Stop();
+            // musicSource.mute = true;
             musicSource.volume = startVolume;
+        }
 
-            PlayMusic(clip);
-
+        private IEnumerator FadeInMusic(float time)
+        {
+            float targetVolume = musicSource.volume;
             musicSource.volume = 0;
-            for (float t = 0; t < transitionTime; t += Time.deltaTime)
+            musicSource.mute = false;
+            if (!musicSource.isPlaying)
+                musicSource.Play();
+
+            while (musicSource.volume < targetVolume)
             {
-                musicSource.volume = Mathf.Lerp(0, startVolume, t / transitionTime);
+                musicSource.volume += targetVolume * Time.deltaTime / time;
                 yield return null;
             }
         }

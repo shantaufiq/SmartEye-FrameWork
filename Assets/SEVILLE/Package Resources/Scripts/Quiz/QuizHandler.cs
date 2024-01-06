@@ -7,7 +7,7 @@ namespace Seville
     public class QuizHandler : MonoBehaviour
     {
         public QuizController quizController;
-        public List<QuizController.MQuizContent> mQuizContentList;
+        public List<QuizController.MQuizContent> quizContentList;
 
         [SerializeField] bool playOnStart = false;
         public UnityEvent AfterDialogFinish;
@@ -22,7 +22,7 @@ namespace Seville
         {
             if (isPlaying) return;
 
-            bool checkquestion = quizController.StartQuiz(mQuizContentList, QuizIsDone);
+            bool checkquestion = quizController.StartQuiz(quizContentList, QuizIsDone);
 
             if (!checkquestion) AfterDialogFinish?.Invoke();
 

@@ -1635,6 +1635,7 @@ MonoBehaviour:
   - {fileID: 814335349}
   - {fileID: 2002976585035569516}
   characterOrigin: {fileID: 1387777779}
+  VR360Settings: {fileID: 0}
   formatMaterial: {fileID: 2100000, guid: 02947b35deb39404ea8dca297527728b, type: 2}
   targetSphereArea: {fileID: 1803539719}
 --- !u!135 &1803539721
@@ -2829,7 +2830,7 @@ PrefabInstance:
     - target: {fileID: 7145871188410310605, guid: 2b69a8eaba0174d49a91024c09dc4a6b,
         type: 3}
       propertyPath: musicSounds.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145871188410310605, guid: 2b69a8eaba0174d49a91024c09dc4a6b,
         type: 3}
@@ -2924,7 +2925,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
-      objectReference: {fileID: 8165603227396862280}
+      objectReference: {fileID: 0}
     - target: {fileID: 1866286100689221146, guid: 7d4d16f09584a7449949b34ff4da9c4a,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3106,12 +3107,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8165603227396862278}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &8165603227396862280 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1672938656263909523, guid: 7d4d16f09584a7449949b34ff4da9c4a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8165603227396862278}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8185057412620536551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,11 +3163,11 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 410087041}
-  - {fileID: 1387777778}
-  - {fileID: 2124265928}
   - {fileID: 1803539724}
   - {fileID: 4144607661411234029}
   - {fileID: 4144607659440965771}
   - {fileID: 814335350}
   - {fileID: 4144607659492163695}
+  - {fileID: 1387777778}
+  - {fileID: 2124265928}
   - {fileID: 6638263202086615444}

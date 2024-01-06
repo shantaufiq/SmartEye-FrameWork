@@ -14,6 +14,8 @@ namespace Seville
 
             EnvironmentAreaManagerVR3D manager = (EnvironmentAreaManagerVR3D)target;
 
+            manager.propsList.RemoveAll(item => item == null);
+
             if (GUILayout.Button("Add Features", SevilleStyleEditor.BlueButton))
             {
                 AreaManagerVR3DWindow.ShowWindow(manager);

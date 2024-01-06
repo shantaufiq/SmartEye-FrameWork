@@ -15,6 +15,8 @@ namespace Seville
 
             EnvAreaHandler manager = (EnvAreaHandler)target;
 
+            manager.areaObjsList.RemoveAll(item => item == null);
+
             if (GUILayout.Button("Add Features", SevilleStyleEditor.BlueButton))
             {
                 EnvAreaHandlerWindow.ShowWindow(manager);
