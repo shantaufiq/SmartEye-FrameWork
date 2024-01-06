@@ -40,8 +40,8 @@ MonoBehaviour:
   - 
   - 
   - 
-  - NonInteractable
-  - Intractable
-  - direct interaction
-  - ray interaction
+  - 
+  - 
+  - Direct Interaction
+  - Ray Interaction
   - Teleport

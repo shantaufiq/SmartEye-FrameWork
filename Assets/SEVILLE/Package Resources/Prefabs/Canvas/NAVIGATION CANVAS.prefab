@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2950214593431893343}
   - component: {fileID: 5153455261091507540}
   m_Layer: 5
-  m_Name: Instruction
+  m_Name: Button Klick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8381963366927518282}
         m_TargetAssemblyTypeName: Seville.EnvNavigation, Assembly-CSharp
-        m_MethodName: OnClickChangeEnvirontment
-        m_Mode: 3
+        m_MethodName: OnClickChangeAreaVR360
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -402,3 +402,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf76f3c44b55e684a9e883f31b999b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetNextSceneOrArea: 0

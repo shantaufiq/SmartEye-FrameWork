@@ -4,7 +4,7 @@ using UnityEditor;
 namespace TProject
 {
 #if UNITY_EDITOR
-    // [CustomEditor(typeof(VideoPlayerController))]
+    [CustomEditor(typeof(VideoPlayerController))]
     public class VideoPlayerControllerEditor : Editor
     {
         SerializedProperty videoClipProp;

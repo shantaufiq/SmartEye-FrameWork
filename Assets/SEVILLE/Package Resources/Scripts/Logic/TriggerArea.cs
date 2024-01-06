@@ -8,6 +8,7 @@ namespace Seville
     public class TriggerArea : MonoBehaviour
     {
         public UnityEvent OnPlayerEnter;
+        public UnityEvent OnPlayerStay;
         public UnityEvent OnPlayerExit;
 
         private void OnTriggerEnter(Collider other)
@@ -18,9 +19,12 @@ namespace Seville
             }
         }
 
-        public void CheckPlayer()
+        private void OnTriggerStay(Collider other)
         {
-            Debug.Log($"check player enter");
+            if (other.CompareTag("Player"))
+            {
+                OnPlayerStay?.Invoke();
+            }
         }
 
         private void OnTriggerExit(Collider other)

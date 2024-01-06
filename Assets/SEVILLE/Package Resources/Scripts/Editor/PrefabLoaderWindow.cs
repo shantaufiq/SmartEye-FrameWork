@@ -137,6 +137,12 @@ namespace Seville
             }
         }
 
+        [MenuItem("GameObject/Seville/Create Project Multiplayer", false, 10)]
+        private static void InstanceStarterProjectMultiplayer()
+        {
+
+        }
+
         private static GameObject AddPackage(string prefabPath)
         {
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);

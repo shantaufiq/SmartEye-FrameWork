@@ -120,5 +120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnvAreaHandlers: []
   characterOrigin: {fileID: 0}
+  VR360Settings: {fileID: 11400000, guid: 4222c6b3eb470884ba5582f75bff4fd5, type: 2}
   formatMaterial: {fileID: 2100000, guid: 02947b35deb39404ea8dca297527728b, type: 2}
   targetSphereArea: {fileID: 2802167973759856707}

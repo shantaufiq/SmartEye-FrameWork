@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7291402418049208398}
   - component: {fileID: 6383386335325451309}
   - component: {fileID: 4786884282545862855}
-  m_Layer: 7
-  m_Name: OBJECT (Cube-Base)
+  m_Layer: 28
+  m_Name: INTERACTABLE OBJECT (Cube-Base)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6601108204658347652}
@@ -154,7 +154,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 536870912
+    m_Bits: 1610612736
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 0
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7028388659249205092}
-  m_Layer: 7
+  m_Layer: 28
   m_Name: Left Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6601108204658347652}
-  m_Layer: 7
+  m_Layer: 28
   m_Name: Right Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
