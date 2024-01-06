@@ -2830,7 +2830,7 @@ PrefabInstance:
     - target: {fileID: 7145871188410310605, guid: 2b69a8eaba0174d49a91024c09dc4a6b,
         type: 3}
       propertyPath: musicSounds.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145871188410310605, guid: 2b69a8eaba0174d49a91024c09dc4a6b,
         type: 3}
