@@ -37,7 +37,7 @@ namespace Seville
             }
 
             GameObject obj = Instantiate(prefab);
-            obj.name = $"---- AREA NUMBER: {manager.EnvAreaHandlers.Count + 1} ----";
+            obj.name = $"---- AREA NUMBER: {manager.EnvAreaHandlers.Count} ----";
 
             EnvAreaHandler handler = obj.GetComponent<EnvAreaHandler>();
 

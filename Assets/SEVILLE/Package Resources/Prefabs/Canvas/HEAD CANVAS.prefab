@@ -4562,7 +4562,7 @@ MonoBehaviour:
   spawnDistance: 2.5
   maxDistance: 5
   useQuestCanvas: 0
-  dataManager: {fileID: 11400000, guid: a6da9c5a4e08af14ebbe6ff0afa40165, type: 2}
+  dataManager: {fileID: 0}
   questController: {fileID: 8802617899022576056}
   scoreController: {fileID: 2031067166990528975}
   secondaryBtnAction:
