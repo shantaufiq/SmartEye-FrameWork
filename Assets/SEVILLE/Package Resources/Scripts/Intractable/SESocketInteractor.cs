@@ -28,7 +28,7 @@ namespace Seville
             interactable.transform.SetParent(parentArea);
             ToggleMesh(false);
 
-            var obj = interactable.GetComponent<XRGrabIntractableTwoAttach>();
+            var obj = interactable.GetComponent<XRGrabInteractableTwoAttach>();
             obj.retainTransformParent = false;
         }
 
@@ -38,7 +38,7 @@ namespace Seville
             base.OnSelectExited(interactable);
 
             ToggleMesh(true);
-            var obj = interactable.GetComponent<XRGrabIntractableTwoAttach>();
+            var obj = interactable.GetComponent<XRGrabInteractableTwoAttach>();
             obj.retainTransformParent = true;
         }
 
@@ -72,7 +72,7 @@ namespace Seville
 
         private bool MatchUsingTag(XRBaseInteractable interactable)
         {
-            var obj = interactable.GetComponent<XRGrabIntractableTwoAttach>();
+            var obj = interactable.GetComponent<XRGrabInteractableTwoAttach>();
 
             return targetObjNames.Contains(obj.objName);
             // return interactable.CompareTag(targetTag);

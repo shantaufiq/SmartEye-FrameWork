@@ -10,6 +10,7 @@ namespace Seville
 
     public class KeyboardController : MonoBehaviour
     {
+        public NonNativeKeyboard keyboard;
         public TMP_InputField inputField;
 
         public float distance = 0.5f;
@@ -22,6 +23,8 @@ namespace Seville
 
         void Start()
         {
+            if (!keyboard) Debug.LogWarning("NonNativeKeyboard hasn't been assigned");
+
             if (OnGetKeyboardOuput == null)
                 OnGetKeyboardOuput = new StringKeyboardOutput();
 
@@ -30,8 +33,10 @@ namespace Seville
 
         public void OpenKeyboard()
         {
-            NonNativeKeyboard.Instance.InputField = inputField;
-            NonNativeKeyboard.Instance.PresentKeyboard(inputField.text);
+            if (keyboard.gameObject.activeSelf == false) keyboard.gameObject.SetActive(true);
+
+            keyboard.InputField = inputField;
+            keyboard.PresentKeyboard(inputField.text);
 
             if (possitionCam != null)
             {
@@ -40,20 +45,20 @@ namespace Seville
                 direction.Normalize();
 
                 Vector3 targetPos = possitionCam.position + direction * distance + Vector3.up * verticalOffset;
-                NonNativeKeyboard.Instance.RepositionKeyboard(targetPos);
+                keyboard.RepositionKeyboard(targetPos);
 
                 Debug.LogWarning($"The keyboard controller does not find the value of positionCam, enter the transform camera origin into a variable");
             }
 
             SetCaretColorAlpha(1);
 
-            NonNativeKeyboard.Instance.OnClosed += Instance_OnClosed;
+            keyboard.OnClosed += Instance_OnClosed;
         }
 
         private void Instance_OnClosed(object sender, System.EventArgs a)
         {
             SetCaretColorAlpha(0);
-            NonNativeKeyboard.Instance.OnClosed -= Instance_OnClosed;
+            keyboard.OnClosed -= Instance_OnClosed;
         }
 
         public void SetCaretColorAlpha(float value)

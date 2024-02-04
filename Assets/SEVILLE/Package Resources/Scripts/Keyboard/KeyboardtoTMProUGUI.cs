@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Seville
 {
-    public class KeyboardtoTMProUGUI : MonoBehaviour
+    public class KeyboardToTMProUGUI : MonoBehaviour
     {
         public TextMeshProUGUI outputTargetText;
 
