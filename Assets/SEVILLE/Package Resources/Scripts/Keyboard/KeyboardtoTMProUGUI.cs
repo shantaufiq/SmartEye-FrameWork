@@ -16,7 +16,7 @@ namespace Seville
             }
             else
             {
-                Debug.LogError($"outputTargetText is null reference, plase drag ");
+                Debug.LogError($"outputTargetText is null reference, plase drag output target");
             }
         }
     }

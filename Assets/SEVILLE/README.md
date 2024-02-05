@@ -11,7 +11,7 @@ Smarteye plugin is an add-on that supports developers in creating virtual realit
 5. Add Interaction Profiles for Oculus Controllers
 6. Install XR Integration Toolkit
 7. Download smarteye plugin dari asset store
-8. Import package ke dalam proyek unity
+8. Import package into your project
 
 ## System Requirements
 - Utilize XR Interaction Toolkit version 2.4.3.

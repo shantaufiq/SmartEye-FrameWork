@@ -23,13 +23,13 @@ namespace Seville
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/NAVIGATION CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/POPUP CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/QUIZ CANVAS.prefab",
-                "Assets/SEVILLE/Package Resources/Prefabs/Canvas/SCORE CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/VIDEO PLAYER CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/PARTIAL QUEST CANVAS.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Canvas/INPUT FIELD CANVAS (VIRTUAL KEYBOARD).prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/INTERACTABLE OBJECT (Cube-Base).prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/SOCKET INTERACTOR.prefab",
                 "Assets/SEVILLE/Package Resources/Prefabs/Object Interactive/POKE BUTTON.prefab",
+                "Assets/SEVILLE/Package Resources/Prefabs/Logic/(LOGIC) INTEGERS COUNTERS.prefab",
             };
 
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos, false, false);

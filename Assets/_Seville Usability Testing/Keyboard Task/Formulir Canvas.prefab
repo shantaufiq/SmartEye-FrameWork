@@ -195,9 +195,8 @@ GameObject:
   - component: {fileID: 3230240522729899002}
   - component: {fileID: 3586407256201866857}
   - component: {fileID: 5901591600203587359}
-  - component: {fileID: 4727654096480519910}
   m_Layer: 28
-  m_Name: Fullname
+  m_Name: Title_Fullname
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,19 +318,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4727654096480519910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704265219383103492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a925b101258eeb3479f987687f1579c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outputTargetText: {fileID: 5901591600203587359}
 --- !u!1 &2261656617355839226
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,9 +597,8 @@ GameObject:
   - component: {fileID: 6735848435293516873}
   - component: {fileID: 4285321187773675034}
   - component: {fileID: 6959302088091332615}
-  - component: {fileID: 8246630310725244513}
   m_Layer: 28
-  m_Name: Username
+  m_Name: Title_Username
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -735,19 +720,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8246630310725244513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734811298868353892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a925b101258eeb3479f987687f1579c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outputTargetText: {fileID: 6959302088091332615}
 --- !u!1 &3149597546944913075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,7 +1469,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4798838386940499851}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0010000002, y: 0.001, z: 0.0010000002}
   m_ConstrainProportionsScale: 0
