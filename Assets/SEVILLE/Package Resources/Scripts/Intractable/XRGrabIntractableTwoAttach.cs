@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Seville
 {
-    public class XRGrabIntractableTwoAttach : XRGrabInteractable
+    public class XRGrabInteractableTwoAttach : XRGrabInteractable
     {
 
         public string objName;

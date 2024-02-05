@@ -9,6 +9,9 @@ namespace Seville
     {
         public DataManager dataManager;
         public HeadCanvasController headCanvas;
+#if UNITY_EDITOR
+        [ReadOnly]
+#endif
         [SerializeField] private int score;
         private int scoreMax;
         public TextMeshProUGUI scoreText;

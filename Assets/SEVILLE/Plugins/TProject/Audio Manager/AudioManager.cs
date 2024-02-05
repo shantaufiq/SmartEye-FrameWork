@@ -45,20 +45,6 @@ namespace Tproject.AudioManager
             videoSource.volume = volume;
         }
 
-        private Sound FindSound(string name, Sound[] sounds)
-        {
-            foreach (var sound in sounds)
-            {
-                if (sound.name == name)
-                {
-                    return sound;
-                }
-            }
-
-            Debug.LogWarning($"{name} isn't available");
-            return null;
-        }
-
         public void PlayBackgroundMusic(string name)
         {
             Sound sound = FindSound(name, musicSounds);
@@ -77,6 +63,23 @@ namespace Tproject.AudioManager
             {
                 sfxSource.PlayOneShot(sound.clip);
             }
+        }
+
+        public void SetSfxVolume(float volume) =>
+            sfxSource.volume = volume;
+
+        private Sound FindSound(string name, Sound[] sounds)
+        {
+            foreach (var sound in sounds)
+            {
+                if (sound.name == name)
+                {
+                    return sound;
+                }
+            }
+
+            Debug.LogWarning($"{name} isn't available");
+            return null;
         }
 
         public void MuteMusic()

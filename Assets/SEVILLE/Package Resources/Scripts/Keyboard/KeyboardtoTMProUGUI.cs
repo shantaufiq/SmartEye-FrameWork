@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Seville
 {
-    public class KeyboardtoTMProUGUI : MonoBehaviour
+    public class KeyboardToTMProUGUI : MonoBehaviour
     {
         public TextMeshProUGUI outputTargetText;
 
@@ -16,7 +16,7 @@ namespace Seville
             }
             else
             {
-                Debug.LogError($"outputTargetText is null reference, plase drag ");
+                Debug.LogError($"outputTargetText is null reference, plase drag output target");
             }
         }
     }

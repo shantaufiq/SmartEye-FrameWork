@@ -92,6 +92,7 @@ namespace Seville
             GameObject prefab2 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Environments/ENVIRONMENT MANAGER VR 360.prefab");
             GameObject prefab3 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Audio/AUDIO MANAGER.prefab");
             GameObject prefab4 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Canvas/HEAD CANVAS.prefab");
+            GameObject prefab5 = AddPackage("Assets/SEVILLE/Plugins/XR Interaction Toolkit/2.4.3/XR Device Simulator/XR Device Simulator.prefab");
 
             if (prefab1 != null && prefab2 != null)
             {
@@ -122,6 +123,7 @@ namespace Seville
             GameObject prefab2 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Audio/AUDIO MANAGER.prefab");
             GameObject prefab3 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Character/CHARACTER CONTROLLER VR 3D.prefab");
             GameObject prefab4 = AddPackage("Assets/SEVILLE/Package Resources/Prefabs/Canvas/HEAD CANVAS.prefab");
+            GameObject prefab5 = AddPackage("Assets/SEVILLE/Plugins/XR Interaction Toolkit/2.4.3/XR Device Simulator/XR Device Simulator.prefab");
 
             if (prefab1 != null && prefab2 != null)
             {
