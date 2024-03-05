@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1250626030843309514}
   - component: {fileID: 4764702953445614244}
   - component: {fileID: 3539335566927855334}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3111286709116018058}
   - component: {fileID: 1453925913864646676}
   - component: {fileID: 2224701649629829441}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 5302088775990481860}
   - component: {fileID: 5766358572476095482}
   - component: {fileID: 1756757206064168996}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Btn_Show Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 611920936553017810}
   - component: {fileID: 29000453799043729}
   - component: {fileID: 3767526185998865696}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2569174113573992790}
   - component: {fileID: 551391649298040408}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 1687931434829397000}
   - component: {fileID: 5884867790348263430}
   - component: {fileID: 262065998777302819}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 8322442172824741696}
   - component: {fileID: 7586969469061106017}
   - component: {fileID: 6116271972480481743}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: SCORE CANVAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7586969469061106017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 7296840160506516522}
   - component: {fileID: 6321043901975749619}
   - component: {fileID: 4285226672333752181}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: text_instruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 3904351755331579133}
   - component: {fileID: 5507703776640873335}
   - component: {fileID: 1187021174637797966}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 5686008491061114350}
   - component: {fileID: 6869552945378100099}
   - component: {fileID: 7779090367449062380}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Btn_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}

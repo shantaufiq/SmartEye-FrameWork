@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2362826786032215826}
   - component: {fileID: 2950214593431893343}
   - component: {fileID: 5153455261091507540}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BUTTON CLICK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 9216964144645013034}
   - component: {fileID: 7202715605812442695}
   - component: {fileID: 4045255934376405334}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 5164278622210592933}
   - component: {fileID: 5902087388415022700}
   - component: {fileID: 8381963366927518282}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NAVIGATION CANVAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5164278622210592933
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2919465775064415785}
   - component: {fileID: 5354173717975008741}
   - component: {fileID: 8474531810095809508}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Play Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 3068586476396537760}
   - component: {fileID: 6197635042467570520}
   - component: {fileID: 1559057643122590809}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1114336282481002407}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 7120840502041099368}
   - component: {fileID: 2646271173485607541}
   - component: {fileID: 7683255832751056312}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1468887259246884699}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 7929846386522933392}
   - component: {fileID: 3930673468404984483}
   - component: {fileID: 7155267004281225040}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Video Player Controller
   m_TagString: VideoPlayerCanvas
   m_Icon: {fileID: 0}
@@ -457,6 +457,7 @@ MonoBehaviour:
   controllerGroup: {fileID: 5083495434370772565}
   playButton: {fileID: 405283848994788936}
   pauseButton: {fileID: 5695077414332137510}
+  audioManager: {fileID: 0}
 --- !u!1 &4871613270712686924
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +469,7 @@ GameObject:
   - component: {fileID: 3513265118143606078}
   - component: {fileID: 5812078417465403174}
   - component: {fileID: 6539519555597454744}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +545,7 @@ GameObject:
   - component: {fileID: 5156514844932536321}
   - component: {fileID: 1284123560912215579}
   - component: {fileID: 910376831089755138}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: reverse 15s Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8056676307322988684}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +717,7 @@ GameObject:
   - component: {fileID: 6218654381595266407}
   - component: {fileID: 8292823068510078982}
   - component: {fileID: 76405542415914396}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +792,7 @@ GameObject:
   - component: {fileID: 6797011515596125782}
   - component: {fileID: 4643913569666355232}
   - component: {fileID: 4587134204623338980}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,7 +868,7 @@ GameObject:
   - component: {fileID: 8721392685407943751}
   - component: {fileID: 5996203342804520605}
   - component: {fileID: 8433378335441352200}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Pause Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 332885267834257}
   - component: {fileID: 997925759655776502}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,7 +1073,7 @@ GameObject:
   - component: {fileID: 8207000166285254318}
   - component: {fileID: 4555037150927708282}
   - component: {fileID: 7963962757166279422}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: forward 15s Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1205,7 @@ GameObject:
   - component: {fileID: 7769271812318724168}
   - component: {fileID: 6415602631027024458}
   - component: {fileID: 7396265274957936712}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1281,7 +1282,7 @@ GameObject:
   - component: {fileID: 254693364393669995}
   - component: {fileID: 5316402860141563263}
   - component: {fileID: 2054853975586803227}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: VIDEO PLAYER CANVAS
   m_TagString: VideoPlayerCanvas
   m_Icon: {fileID: 0}
@@ -1403,7 +1404,7 @@ GameObject:
   - component: {fileID: 4984185666223383303}
   - component: {fileID: 4526517901856095142}
   - component: {fileID: 518707952510076760}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1476,7 @@ GameObject:
   - component: {fileID: 1866286100689221146}
   - component: {fileID: 1571488841153615379}
   - component: {fileID: 5455415640470998100}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1549,7 +1550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9007751050429492350}
   - component: {fileID: 624899583351084110}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Progress Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

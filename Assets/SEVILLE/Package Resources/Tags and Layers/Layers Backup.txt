@@ -4,9 +4,6 @@ Ignore Raycast
 Water
 UI
 Player
-MyCustomLayer
 NonInteractable
 Intractable
-direct interaction
-ray interaction
 Teleport
