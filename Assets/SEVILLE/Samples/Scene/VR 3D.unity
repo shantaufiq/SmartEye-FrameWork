@@ -360,8 +360,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33116103}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.12337279, y: -6.3318467, z: -9.938579}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5578,7 +5578,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_InteractionLayers:
-    m_Bits: 1610612736
+    m_Bits: 1610612737
   m_AttachTransform: {fileID: 1085803882}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -5664,7 +5664,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 2415919136
+    m_Bits: 2415919137
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0
@@ -7379,7 +7379,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 23
   m_InteractionLayers:
-    m_Bits: 536870912
+    m_Bits: 536870913
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -7450,7 +7450,7 @@ MonoBehaviour:
   m_ImproveAccuracyWithSphereCollider: 1
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 268435456
+    m_Bits: 268435457
   m_PhysicsTriggerInteraction: 1
 --- !u!135 &886007713
 SphereCollider:
@@ -7978,7 +7978,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 23
   m_InteractionLayers:
-    m_Bits: 536870912
+    m_Bits: 536870913
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -8049,7 +8049,7 @@ MonoBehaviour:
   m_ImproveAccuracyWithSphereCollider: 1
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 268435456
+    m_Bits: 268435457
   m_PhysicsTriggerInteraction: 1
 --- !u!135 &990237287
 SphereCollider:
@@ -11389,7 +11389,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_InteractionLayers:
-    m_Bits: 1610612736
+    m_Bits: 1610612737
   m_AttachTransform: {fileID: 226475294}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -11475,7 +11475,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 2415919136
+    m_Bits: 2415919137
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0
@@ -15095,10 +15095,13 @@ MonoBehaviour:
   m_GroupName: Right
   m_InteractionManager: {fileID: 0}
   m_StartingGroupMembers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_StartingInteractionOverridesMap: []
+  - {fileID: 1612963351}
+  - {fileID: 990237286}
+  - {fileID: 1273108818}
+  m_StartingInteractionOverridesMap:
+  - groupMember: {fileID: 1612963351}
+    overrideGroupMembers:
+    - {fileID: 990237286}
 --- !u!114 &1703697064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15544,6 +15547,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6218654381595266407, guid: 7d4d16f09584a7449949b34ff4da9c4a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8403411804582243359, guid: 7d4d16f09584a7449949b34ff4da9c4a,
         type: 3}
@@ -19509,6 +19517,8 @@ MonoBehaviour:
   objName: opm
   rightAttachTransform: {fileID: 1640748969}
   leftAttachTransform: {fileID: 729618418}
+  isFreezeOnRigidbody: 0
+  rb: {fileID: 0}
 --- !u!65 &5616941406151964390
 BoxCollider:
   m_ObjectHideFlags: 0
