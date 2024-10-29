@@ -7,7 +7,7 @@ namespace TProject
     [CustomEditor(typeof(VideoPlayerController))]
     public class VideoPlayerControllerEditor : Editor
     {
-        SerializedProperty videoClipProp;
+        /* SerializedProperty videoClipProp;
         SerializedProperty onVideoFinishedProp;
         SerializedProperty _hideScreenControlTime;
 
@@ -31,7 +31,7 @@ namespace TProject
 
             // Apply changes to the serializedProperty - always do this at the end of OnInspectorGUI.
             serializedObject.ApplyModifiedProperties();
-        }
+        } */
     }
 #endif
 }
