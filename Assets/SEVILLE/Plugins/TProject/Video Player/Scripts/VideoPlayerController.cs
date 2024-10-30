@@ -25,11 +25,17 @@ namespace TProject
 
         [Header("Component Dependencies")]
         [SerializeField] private VideoPlayer videoplayer;
-        [SerializeField] private Slider sliderProgress;
-        [SerializeField] private CanvasGroup controllerGroup;
-        [SerializeField] private GameObject playButton;
-        [SerializeField] private GameObject pauseButton;
         [SerializeField] private GameObject panelThumbnail;
+
+        [Space(3f)]
+        [SerializeField] private CanvasGroup controllerGroup;
+        [SerializeField] private Slider sliderProgress;
+        [SerializeField] private GameObject activeControllerGroup;
+        [SerializeField] private GameObject buttonPlay;
+        [SerializeField] private GameObject buttonPause;
+        [SerializeField] private GameObject buttonReverse;
+        [SerializeField] private GameObject buttonForward;
+        [SerializeField] private GameObject buttonReplay;
 
         private AudioManager m_audioManager;
         private LTDescr currentTween; // Reference to the current LeanTween animation
@@ -46,7 +52,7 @@ namespace TProject
 
         private void Start()
         {
-            videoplayer.loopPointReached += CheckEnd;
+            videoplayer.loopPointReached += CheckerOnVideoEnd;
 
             if (AudioManager.Instance != null) m_audioManager = AudioManager.Instance;
             else Debug.LogWarning("please add Audio Manager for the audio video output");
@@ -60,6 +66,8 @@ namespace TProject
                     Invoke("PlayVideo", .1f);
                 };
             }));
+
+            SetupButtonFuction();
         }
 
         private IEnumerator GetAudioSourceCoroutine(Action OnGetSource)
@@ -79,15 +87,19 @@ namespace TProject
             OnGetSource.Invoke();
         }
 
-        private void PlayPauseVisibility()
+        private void SetupButtonFuction()
         {
-            pauseButton.SetActive(videoplayer.isPlaying);
-            playButton.SetActive(!videoplayer.isPlaying);
+            buttonPlay.GetComponent<Button>().onClick.AddListener(() => TogglePlayPause());
+            buttonPause.GetComponent<Button>().onClick.AddListener(() => TogglePlayPause());
+            buttonReverse.GetComponent<Button>().onClick.AddListener(() => OnClickReverseTime());
+            buttonForward.GetComponent<Button>().onClick.AddListener(() => OnClickForwardTime());
+            buttonReplay.GetComponent<Button>().onClick.AddListener(() => OnClickReplay());
         }
 
-        public void SkipTime(long frameStep)
+        private void PlayPauseVisibility()
         {
-            videoplayer.frame += frameStep;
+            buttonPause.SetActive(videoplayer.isPlaying);
+            buttonPlay.SetActive(!videoplayer.isPlaying);
         }
 
         private void SetVideoPlayState(bool isPlaying)
@@ -115,21 +127,26 @@ namespace TProject
             UpdateUI(isPlaying);
         }
 
-        public void TogglePlayPause()
-        {
-            SetVideoPlayState(!videoplayer.isPlaying);
-        }
-
         private void UpdateUI(bool isPlaying)
         {
-            pauseButton.SetActive(isPlaying);
-            playButton.SetActive(!isPlaying);
+            buttonPause.SetActive(isPlaying);
+            buttonPlay.SetActive(!isPlaying);
             panelThumbnail.SetActive(!isPlaying);
         }
 
-        private void CheckEnd(VideoPlayer vp)
+        private void CheckerOnVideoEnd(VideoPlayer vp)
         {
             OnVideoFinished?.Invoke();
+
+            panelThumbnail.SetActive(true);
+            buttonReplay.SetActive(true);
+            activeControllerGroup.SetActive(false);
+        }
+
+        #region Button-Function
+        public void TogglePlayPause()
+        {
+            SetVideoPlayState(!videoplayer.isPlaying);
         }
 
         public void OnClickForwardTime() =>
@@ -137,6 +154,23 @@ namespace TProject
 
         public void OnClickReverseTime() =>
             videoplayer.frame -= 450;
+
+        public void OnClickReplay()
+        {
+            if (videoplayer != null)
+            {
+                videoplayer.Stop();
+                videoplayer.time = 0;
+                videoplayer.Play();
+
+                activeControllerGroup.SetActive(true);
+                UpdateUI(videoplayer.isPlaying);
+
+                buttonReplay.SetActive(false);
+            }
+        }
+
+        #endregion Button-Function
 
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -146,7 +180,8 @@ namespace TProject
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            SetControllerVisibilty(false);
+            if (videoplayer.isPlaying)
+                SetControllerVisibilty(false);
         }
 
         public void SetControllerVisibilty(bool visibilityState)
