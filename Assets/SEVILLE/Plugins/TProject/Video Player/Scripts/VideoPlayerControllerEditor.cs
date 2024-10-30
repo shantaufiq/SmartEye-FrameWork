@@ -8,28 +8,63 @@ namespace TProject
     public class VideoPlayerControllerEditor : Editor
     {
         SerializedProperty videoClipProp;
+        SerializedProperty controlTimeProp;
+        SerializedProperty playOnStartProp;
         SerializedProperty onVideoFinishedProp;
-        SerializedProperty _hideScreenControlTime;
+
+        SerializedProperty videoplayerProp;
+        SerializedProperty panelThumbnailProp;
+        SerializedProperty controllerGroupProp;
+        SerializedProperty buttonPlayProp;
+        SerializedProperty buttonPauseProp;
+        SerializedProperty buttonReverseProp;
+        SerializedProperty buttonForwardProp;
+        SerializedProperty buttonReplayProp;
+
+
+        private bool showComponentDependencies = false;
 
         private void OnEnable()
         {
-            // Mengambil properti yang akan ditampilkan
             videoClipProp = serializedObject.FindProperty("videoClip");
+            playOnStartProp = serializedObject.FindProperty("playOnStart");
+            controlTimeProp = serializedObject.FindProperty("hideScreenControlTime");
             onVideoFinishedProp = serializedObject.FindProperty("OnVideoFinished");
-            _hideScreenControlTime = serializedObject.FindProperty("hideScreenControlTime");
+
+            videoplayerProp = serializedObject.FindProperty("videoplayer");
+            panelThumbnailProp = serializedObject.FindProperty("panelThumbnail");
+            controllerGroupProp = serializedObject.FindProperty("controllerGroup");
+            buttonPlayProp = serializedObject.FindProperty("buttonPlay");
+            buttonPauseProp = serializedObject.FindProperty("buttonPause");
+            buttonReverseProp = serializedObject.FindProperty("buttonReverse");
+            buttonForwardProp = serializedObject.FindProperty("buttonForward");
+            buttonReplayProp = serializedObject.FindProperty("buttonReplay");
         }
 
         public override void OnInspectorGUI()
         {
-            // Pastikan untuk memulai dan mengakhiri dengan ini agar perubahan yang dilakukan oleh user disimpan
             serializedObject.Update();
 
-            // Menampilkan hanya properti yang diinginkan di Inspector
             EditorGUILayout.PropertyField(videoClipProp);
+            EditorGUILayout.PropertyField(controlTimeProp);
+            EditorGUILayout.PropertyField(playOnStartProp);
             EditorGUILayout.PropertyField(onVideoFinishedProp);
-            EditorGUILayout.PropertyField(_hideScreenControlTime);
 
-            // Apply changes to the serializedProperty - always do this at the end of OnInspectorGUI.
+            // Toggle showComponents
+            showComponentDependencies = EditorGUILayout.Toggle("Show Component Dependencies", showComponentDependencies);
+
+            if (showComponentDependencies)
+            {
+                EditorGUILayout.PropertyField(videoplayerProp);
+                EditorGUILayout.PropertyField(panelThumbnailProp);
+                EditorGUILayout.PropertyField(controllerGroupProp);
+                EditorGUILayout.PropertyField(buttonPlayProp);
+                EditorGUILayout.PropertyField(buttonPauseProp);
+                EditorGUILayout.PropertyField(buttonReverseProp);
+                EditorGUILayout.PropertyField(buttonForwardProp);
+                EditorGUILayout.PropertyField(buttonReplayProp);
+            }
+
             serializedObject.ApplyModifiedProperties();
         }
     }

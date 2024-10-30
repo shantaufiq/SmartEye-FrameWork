@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Left Hand
   - Right Hand
-  - VideoPlayerCanvas
   layers:
   - Default
   - TransparentFX

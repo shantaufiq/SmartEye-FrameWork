@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 8370749107462802203}
   - component: {fileID: 3846577514755654318}
   - component: {fileID: 176674164305828529}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: /
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 2736344808743171309}
   - component: {fileID: 307616763841729709}
   - component: {fileID: 8192643565464598189}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: panel_Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 3683791620068701500}
   - component: {fileID: 3908626056778025076}
   - component: {fileID: 5973883202479626474}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2170326719672473626}
   - component: {fileID: 4635302192306255989}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 4038779636241343626}
   - component: {fileID: 6662768964557173493}
   - component: {fileID: 6141144724139139023}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: True
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1683,7 +1683,7 @@ GameObject:
   - component: {fileID: 5303873858386974699}
   - component: {fileID: 3506362856803533924}
   - component: {fileID: 5027399964393825149}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ValidationPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1759,7 +1759,7 @@ GameObject:
   - component: {fileID: 2352396322728535066}
   - component: {fileID: 4982872830240510222}
   - component: {fileID: 4962801407024225952}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1895,7 +1895,7 @@ GameObject:
   - component: {fileID: 7056146959975624975}
   - component: {fileID: 3387924249037064898}
   - component: {fileID: 1145389255140057423}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2440,7 +2440,7 @@ GameObject:
   - component: {fileID: 4815991429608075648}
   - component: {fileID: 2510002835574758265}
   - component: {fileID: 3144697169793892591}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: QUIZ CANVAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2513,7 +2513,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2510002835574758265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2930,7 +2930,7 @@ GameObject:
   - component: {fileID: 4645591888881601049}
   - component: {fileID: 6567651812019698978}
   - component: {fileID: 3220183917780240955}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Total
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3064,7 +3064,7 @@ GameObject:
   - component: {fileID: 7082057282397440044}
   - component: {fileID: 990559008705029406}
   - component: {fileID: 3760310857938675084}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image_ValidationProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3287,7 +3287,7 @@ GameObject:
   - component: {fileID: 5879201167499118712}
   - component: {fileID: 8115832585181465314}
   - component: {fileID: 8161677848598714266}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: QuizController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3586,7 +3586,7 @@ GameObject:
   - component: {fileID: 7990639987278210769}
   - component: {fileID: 8134672871330669861}
   - component: {fileID: 5091065697717511724}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Btn_Show Quiz
   m_TagString: Untagged
   m_Icon: {fileID: 0}

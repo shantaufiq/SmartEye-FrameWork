@@ -7,11 +7,12 @@ namespace Seville
 {
     public class XRGrabInteractableTwoAttach : XRGrabInteractable
     {
-
         public string objName;
         public Transform rightAttachTransform;
         public Transform leftAttachTransform;
 
+        public bool isFreezeOnRigidbody;
+        [SerializeField] private Rigidbody rb;
 
         public override Transform GetAttachTransform(IXRInteractor interactor)
         {
@@ -30,6 +31,22 @@ namespace Seville
                 i_attachTransform = rightAttachTransform;
             }
             return i_attachTransform != null ? i_attachTransform : base.GetAttachTransform(interactor);
+        }
+
+        protected override void OnSelectEntered(SelectEnterEventArgs args)
+        {
+            base.OnSelectEntered(args);
+
+            if (isFreezeOnRigidbody)
+                rb.constraints = RigidbodyConstraints.None;
+        }
+
+        protected override void OnSelectExited(SelectExitEventArgs args)
+        {
+            base.OnSelectExited(args);
+
+            if (isFreezeOnRigidbody)
+                rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 }

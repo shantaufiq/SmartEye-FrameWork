@@ -1,182 +1,252 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using Tproject.AudioManager;
-using Seville;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using System.Collections;
+using System;
+using TMPro;
 
 namespace TProject
 {
-    public class VideoPlayerController : MonoBehaviour
+    public class VideoPlayerController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        [Header("Video Config")]
         public VideoClip videoClip;
+
+        [Range(.1f, 1f)]
+        [SerializeField] private float hideScreenControlTime = .9f;
+        [SerializeField] private bool playOnStart = false;
+
+        [Header("Video Event")]
+        [Space(5f)]
         public UnityEvent OnVideoFinished;
-        [SerializeField] private float hideScreenControlTime = 0f;
 
+        [Header("Component Dependencies")]
+        [SerializeField] private VideoPlayer videoplayer;
+        [SerializeField] private GameObject panelThumbnail;
 
-        public CanvasRayChecker checker;
-        public VideoPlayer videoPlayer;
-        public Slider sliderProgress;
-        public GameObject controllerGroup;
-        public GameObject playButton;
-        public GameObject pauseButton;
-        public AudioManager audioManager;
+        [Space(3f)]
+        [SerializeField] private CanvasGroup controllerGroup;
+        [SerializeField] private Slider sliderProgress;
+        [SerializeField] private TextMeshProUGUI textDuration;
+        [SerializeField] private GameObject activeControllerGroup;
+        [SerializeField] private GameObject buttonPlay;
+        [SerializeField] private GameObject buttonPause;
+        [SerializeField] private GameObject buttonReverse;
+        [SerializeField] private GameObject buttonForward;
+        [SerializeField] private GameObject buttonReplay;
+
+        private AudioManager m_audioManager;
+        private LTDescr currentTween; // Reference to the current LeanTween animation
 
         private static List<VideoPlayerController> controllers = new List<VideoPlayerController>();
-
-        private float hideScreenTimer = 0f;
 
         private void Awake() =>
             controllers.Add(this);
 
-
         private void OnDestroy() =>
             controllers.Remove(this);
 
-
         private void Start()
         {
-            videoPlayer.loopPointReached += CheckEnd;
+            videoplayer.loopPointReached += CheckerOnVideoEnd;
 
-            if (AudioManager.Instance != null) audioManager = AudioManager.Instance;
+            if (AudioManager.Instance != null) m_audioManager = AudioManager.Instance;
             else Debug.LogWarning("please add Audio Manager for the audio video output");
 
-            videoPlayer.clip = videoClip;
+            videoplayer.clip = videoClip;
 
-            Invoke("GetAudioSource", .5f);
-        }
-
-        void GetAudioSource()
-        {
-            if (AudioManager.Instance != null)
+            StartCoroutine(GetAudioSourceCoroutine(() =>
             {
-                AudioSource videoAudioSource = AudioManager.Instance.videoSource;
+                if (playOnStart)
+                {
+                    Invoke("PlayVideo", .1f);
+                };
+            }));
 
-                videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
-                videoPlayer.SetTargetAudioSource(0, videoAudioSource);
-            }
+            SetupButtonFuction();
 
+            if (sliderProgress)
+                sliderProgress.onValueChanged.AddListener(HandleSliderChange);
         }
 
         private void Update()
         {
-            UpdateProgress();
-            HandleInput();
-            HandleAutoHideController();
-        }
+            UpdateRemainingTime();
 
-        private void UpdateProgress()
-        {
-            if (videoPlayer.frameCount > 0)
+            if (videoplayer.frameCount > 0 && sliderProgress)
             {
-                float progress = (float)videoPlayer.frame / videoPlayer.frameCount;
-                sliderProgress.value = progress;
+                sliderProgress.SetValueWithoutNotify((float)videoplayer.frame / (float)videoplayer.frameCount);
             }
         }
 
-        private void HandleInput()
+        #region Progress-bar
+        void UpdateRemainingTime()
         {
-            if (UserInteract())
+            if (videoplayer != null && videoplayer.isPlaying)
             {
-                ShowController();
-                if (Input.GetKeyDown(KeyCode.RightArrow))
-                    SkipTime(450);
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                    SkipTime(-450);
-                if (Input.GetKeyDown(KeyCode.Space))
-                    OnClickPlayPause();
+                double totalDuration = videoplayer.length;
+                double currentTime = videoplayer.time;
+
+                double remainingTime = totalDuration - currentTime;
+
+                int minutes = Mathf.FloorToInt((float)remainingTime / 60F);
+                int seconds = Mathf.FloorToInt((float)remainingTime % 60F);
+
+                textDuration.text = $"{minutes:00}:{seconds:00}";
             }
         }
 
-        private void HandleAutoHideController()
+        private void HandleSliderChange(float value)
         {
-            if (hideScreenControlTime > 0)
+            SkipToPercent(value);
+        }
+
+        private void SkipToPercent(float pct)
+        {
+            var frame = videoplayer.frameCount * pct;
+            videoplayer.frame = (long)frame;
+        }
+
+        #endregion Progress-bar
+
+        private IEnumerator GetAudioSourceCoroutine(Action OnGetSource)
+        {
+            // Wait until AudioManager and videoSource are assigned
+            while (AudioManager.Instance == null || AudioManager.Instance.videoSource == null)
             {
-                hideScreenTimer += Time.deltaTime;
-                if (hideScreenTimer >= hideScreenControlTime)
-                {
-                    HideController();
-                }
+                Debug.Log("Waiting for AudioSource to be available...");
+                yield return null; // Check again in the next frame
             }
+
+            AudioSource videoAudioSource = AudioManager.Instance.videoSource;
+            videoplayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+            videoplayer.SetTargetAudioSource(0, videoAudioSource);
+            Debug.Log("AudioSource successfully assigned to VideoPlayer.");
+
+            OnGetSource.Invoke();
         }
 
-        private void ShowController()
+        private void SetupButtonFuction()
         {
-            hideScreenTimer = 0;
-            controllerGroup.SetActive(true);
-            PlayPauseVisibility();
-        }
-
-        private void HideController()
-        {
-            controllerGroup.SetActive(false);
-            hideScreenTimer = 0;
+            buttonPlay.GetComponent<Button>().onClick.AddListener(() => TogglePlayPause());
+            buttonPause.GetComponent<Button>().onClick.AddListener(() => TogglePlayPause());
+            buttonReverse.GetComponent<Button>().onClick.AddListener(() => OnClickReverseTime());
+            buttonForward.GetComponent<Button>().onClick.AddListener(() => OnClickForwardTime());
+            buttonReplay.GetComponent<Button>().onClick.AddListener(() => OnClickReplay());
         }
 
         private void PlayPauseVisibility()
         {
-            pauseButton.SetActive(videoPlayer.isPlaying);
-            playButton.SetActive(!videoPlayer.isPlaying);
+            buttonPause.SetActive(videoplayer.isPlaying);
+            buttonPlay.SetActive(!videoplayer.isPlaying);
         }
 
-        public void SkipTime(long frameStep)
-        {
-            videoPlayer.frame += frameStep;
-        }
-
-        public void OnClickPlayPause()
-        {
-            TogglePlayPause();
-            PlayPauseVisibility();
-        }
-
-        public void PlayVideo()
+        private void SetVideoPlayState(bool isPlaying)
         {
             foreach (var controller in controllers)
             {
-                if (controller != this && controller.videoPlayer.isPlaying)
+                if (controller != this && controller.videoplayer.isPlaying)
                 {
-                    controller.videoPlayer.Pause();
+                    controller.videoplayer.Pause();
+                    controller.UpdateUI(false);
                 }
             }
 
-            videoPlayer.Play();
-        }
-
-        public void TogglePlayPause()
-        {
-            if (videoPlayer.isPlaying)
+            if (isPlaying)
             {
-                videoPlayer.Pause();
-                audioManager.musicSource.mute = false;
-                // AudioManager.Instance.musicSource.mute = false;
+                videoplayer.Play();
+                m_audioManager.musicSource.mute = true;
             }
             else
             {
-                // videoPlayer.Play();
-                PlayVideo();
-                audioManager.musicSource.mute = true;
-                // AudioManager.Instance.musicSource.mute = true;
+                videoplayer.Pause();
+                m_audioManager.musicSource.mute = false;
             }
+
+            UpdateUI(isPlaying);
         }
 
-        private bool UserInteract()
+        private void UpdateUI(bool isPlaying)
         {
-            return checker.isPlayerHoverCanvas;
+            buttonPause.SetActive(isPlaying);
+            buttonPlay.SetActive(!isPlaying);
+            panelThumbnail.SetActive(!isPlaying);
         }
 
-        private void CheckEnd(VideoPlayer vp)
+        private void CheckerOnVideoEnd(VideoPlayer vp)
         {
             OnVideoFinished?.Invoke();
-            // Debug.Log($"video finished");
+
+            panelThumbnail.SetActive(true);
+            buttonReplay.SetActive(true);
+            activeControllerGroup.SetActive(false);
+        }
+
+        #region Button-Function
+        public void TogglePlayPause()
+        {
+            SetVideoPlayState(!videoplayer.isPlaying);
         }
 
         public void OnClickForwardTime() =>
-            videoPlayer.frame += 450;
+            videoplayer.frame += 450;
 
         public void OnClickReverseTime() =>
-            videoPlayer.frame -= 450;
+            videoplayer.frame -= 450;
+
+        public void OnClickReplay()
+        {
+            if (videoplayer != null)
+            {
+                videoplayer.Stop();
+                videoplayer.time = 0;
+                videoplayer.Play();
+
+                activeControllerGroup.SetActive(true);
+                UpdateUI(true);
+
+                buttonReplay.SetActive(false);
+            }
+        }
+
+        #endregion Button-Function
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            SetControllerVisibilty(true);
+            PlayPauseVisibility();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (videoplayer.isPlaying)
+                SetControllerVisibilty(false);
+        }
+
+        public void SetControllerVisibilty(bool visibilityState)
+        {
+            if (currentTween != null)
+            {
+                LeanTween.cancel(currentTween.uniqueId);
+            }
+
+            controllerGroup.interactable = visibilityState;
+            controllerGroup.blocksRaycasts = visibilityState;
+
+            if (visibilityState)
+            {
+                currentTween = LeanTween.alphaCanvas(controllerGroup, 1, 0.1f)
+                                        .setEase(LeanTweenType.easeInOutQuad);
+            }
+            else
+            {
+                currentTween = LeanTween.alphaCanvas(controllerGroup, 0, hideScreenControlTime)
+                                        .setEase(LeanTweenType.easeInOutQuad);
+            }
+        }
     }
 }

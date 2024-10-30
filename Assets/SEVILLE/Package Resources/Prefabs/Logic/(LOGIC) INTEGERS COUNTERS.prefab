@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2055182252241826818}
   - component: {fileID: 3374737231431660380}
   - component: {fileID: 8555763639296178370}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Btn_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 7066400988251219818}
   - component: {fileID: 917372717576713637}
   - component: {fileID: 2921895698679402340}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 1806317703242196343}
   - component: {fileID: 3904514990455069586}
   - component: {fileID: 8206396241789387057}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: (LOGIC) INTEGERS COUNTERS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 6320523063805542268}
   - component: {fileID: 7933452578544363032}
   - component: {fileID: 3261277512357398869}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Btn_Show Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 8478151433997448480}
   - component: {fileID: 5204769452529500016}
   - component: {fileID: 379154268176791729}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 26917044055063164}
   - component: {fileID: 1351798739100042084}
   - component: {fileID: 9134614030472311662}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Debug Value Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 7705690810263119016}
   - component: {fileID: 3406086499826280599}
   - component: {fileID: 8258362326909779671}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,7 +898,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3051367371034196640}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +937,7 @@ GameObject:
   - component: {fileID: 4057970088842758666}
   - component: {fileID: 8318772884595612027}
   - component: {fileID: 2262400796806152757}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 6320082984664029375}
   - component: {fileID: 6798400839829892450}
   - component: {fileID: 2738616691410507521}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

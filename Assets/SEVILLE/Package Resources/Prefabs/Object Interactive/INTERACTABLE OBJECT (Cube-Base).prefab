@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7291402418049208398}
   - component: {fileID: 6383386335325451309}
   - component: {fileID: 4786884282545862855}
-  m_Layer: 28
+  m_Layer: 0
   m_Name: INTERACTABLE OBJECT (Cube-Base)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7028388659249205092}
-  m_Layer: 28
+  m_Layer: 0
   m_Name: Left Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6601108204658347652}
-  m_Layer: 28
+  m_Layer: 0
   m_Name: Right Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}

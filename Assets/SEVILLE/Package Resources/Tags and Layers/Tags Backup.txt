@@ -7,4 +7,3 @@ Player
 GameController
 Left Hand
 Right Hand
-VideoPlayerCanvas

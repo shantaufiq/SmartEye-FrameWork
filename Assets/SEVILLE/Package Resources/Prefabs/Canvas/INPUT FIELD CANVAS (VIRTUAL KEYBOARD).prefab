@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 4750147849202822093}
   - component: {fileID: 5854488734204053448}
   m_Layer: 28
-  m_Name: Keyboard Controller
+  m_Name: Keyboard Controller (Example)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,7 +855,7 @@ GameObject:
   - component: {fileID: 9051229706602942156}
   - component: {fileID: 1613757281026968909}
   m_Layer: 28
-  m_Name: Canvas
+  m_Name: Canvas (Example)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1731,7 +1731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 146120, guid: c4e389e44d96da64ea974ab237ce1a9a, type: 3}
       propertyPath: m_Name
-      value: Virtual Keyboard
+      value: Virtual Keyboard Component
       objectReference: {fileID: 0}
     - target: {fileID: 146120, guid: c4e389e44d96da64ea974ab237ce1a9a, type: 3}
       propertyPath: m_Layer
