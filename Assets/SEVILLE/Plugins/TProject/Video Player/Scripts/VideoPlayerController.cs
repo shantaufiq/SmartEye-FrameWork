@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System;
+using TMPro;
 
 namespace TProject
 {
@@ -30,6 +31,7 @@ namespace TProject
         [Space(3f)]
         [SerializeField] private CanvasGroup controllerGroup;
         [SerializeField] private Slider sliderProgress;
+        [SerializeField] private TextMeshProUGUI textDuration;
         [SerializeField] private GameObject activeControllerGroup;
         [SerializeField] private GameObject buttonPlay;
         [SerializeField] private GameObject buttonPause;
@@ -45,10 +47,8 @@ namespace TProject
         private void Awake() =>
             controllers.Add(this);
 
-
         private void OnDestroy() =>
             controllers.Remove(this);
-
 
         private void Start()
         {
@@ -68,7 +68,50 @@ namespace TProject
             }));
 
             SetupButtonFuction();
+
+            if (sliderProgress)
+                sliderProgress.onValueChanged.AddListener(HandleSliderChange);
         }
+
+        private void Update()
+        {
+            UpdateRemainingTime();
+
+            if (videoplayer.frameCount > 0 && sliderProgress)
+            {
+                sliderProgress.SetValueWithoutNotify((float)videoplayer.frame / (float)videoplayer.frameCount);
+            }
+        }
+
+        #region Progress-bar
+        void UpdateRemainingTime()
+        {
+            if (videoplayer != null && videoplayer.isPlaying)
+            {
+                double totalDuration = videoplayer.length;
+                double currentTime = videoplayer.time;
+
+                double remainingTime = totalDuration - currentTime;
+
+                int minutes = Mathf.FloorToInt((float)remainingTime / 60F);
+                int seconds = Mathf.FloorToInt((float)remainingTime % 60F);
+
+                textDuration.text = $"{minutes:00}:{seconds:00}";
+            }
+        }
+
+        private void HandleSliderChange(float value)
+        {
+            SkipToPercent(value);
+        }
+
+        private void SkipToPercent(float pct)
+        {
+            var frame = videoplayer.frameCount * pct;
+            videoplayer.frame = (long)frame;
+        }
+
+        #endregion Progress-bar
 
         private IEnumerator GetAudioSourceCoroutine(Action OnGetSource)
         {
@@ -164,7 +207,7 @@ namespace TProject
                 videoplayer.Play();
 
                 activeControllerGroup.SetActive(true);
-                UpdateUI(videoplayer.isPlaying);
+                UpdateUI(true);
 
                 buttonReplay.SetActive(false);
             }
