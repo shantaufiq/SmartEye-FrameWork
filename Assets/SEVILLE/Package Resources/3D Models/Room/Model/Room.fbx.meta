@@ -1,9 +1,39 @@
 fileFormatVersion: 2
-guid: bf8703c835ca6cd49a05c96c98872d0a
+guid: f904c1ca1b5b7c347ae9fbab8773e74a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CollorSevile
+    second: {fileID: 2100000, guid: e2453b961e1eb4a4e9bdcf217d5826b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ColorSeville2
+    second: {fileID: 2100000, guid: 2df4568efb03f8e45bcbeb1ae1347bb1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emission
+    second: {fileID: 2100000, guid: 0554d75a13cc1e34f858ff62fc4a7436, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey
+    second: {fileID: 2100000, guid: 0d180132dd721aa45b1611ea471cfab2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey1
+    second: {fileID: 2100000, guid: 79e7372370eb6b34c9c84bfa05ee808b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SoftGrey
+    second: {fileID: 2100000, guid: 94569180e2ee1354a8770b07621ef288, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
