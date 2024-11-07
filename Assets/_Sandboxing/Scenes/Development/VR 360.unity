@@ -2031,7 +2031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaObjsList:
-  - {fileID: 1555547322}
+  - {fileID: 0}
   - {fileID: 1578872711}
   areaTexture: {fileID: 2800000, guid: a11e2d0ee0769bf498a5b1f62734e5ed, type: 3}
   isRestartOnExitArea: 0
@@ -2050,8 +2050,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1555547323}
   - {fileID: 1578872712}
+  - {fileID: 1555547322}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377482304
@@ -10161,6 +10161,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5607579945613914034, guid: 7d4d16f09584a7449949b34ff4da9c4a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6218654381595266407, guid: 7d4d16f09584a7449949b34ff4da9c4a,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10172,6 +10177,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 32900000, guid: d904d89df1dbf3a48bebe04bdbb0eefc,
         type: 3}
+    - target: {fileID: 8191693856551274914, guid: 7d4d16f09584a7449949b34ff4da9c4a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8403411804582243359, guid: 7d4d16f09584a7449949b34ff4da9c4a,
         type: 3}
       propertyPath: m_Name
@@ -10187,15 +10197,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d4d16f09584a7449949b34ff4da9c4a, type: 3}
---- !u!1 &1555547322 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8403411804582243359, guid: 7d4d16f09584a7449949b34ff4da9c4a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1555547321}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1555547323 stripped
+--- !u!224 &1555547322 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2904040861851418335, guid: 7d4d16f09584a7449949b34ff4da9c4a,
+  m_CorrespondingSourceObject: {fileID: 2003714474285906385, guid: 7d4d16f09584a7449949b34ff4da9c4a,
     type: 3}
   m_PrefabInstance: {fileID: 1555547321}
   m_PrefabAsset: {fileID: 0}
