@@ -13,14 +13,6 @@ namespace Seville
         public float spawnDistance = 2;
         public float maxDistance = 5f;
 
-        [Header("Quest Canvas Components")]
-        public bool useQuestCanvas;
-        public DataManager dataManager;
-        public QuestController questController;
-        public ScoreController scoreController;
-        public InputActionProperty secondaryBtnAction;
-        float distanceBetweenObjects;
-
         [Header("Menu Canvas Components")]
         public bool useMenuCanvas;
         public GameObject MenuCanvas;
@@ -34,9 +26,6 @@ namespace Seville
 
         private void Update()
         {
-            if (useQuestCanvas)
-                CheckingQuestCanvas();
-
             if (useMenuCanvas) CheckingMenuCanvas();
 
             if (popupState)
@@ -56,24 +45,6 @@ namespace Seville
             }
 
             HandleCanvasLook(MenuCanvas, playerHead, maxDistance);
-        }
-
-        private void CheckingQuestCanvas()
-        {
-            if (!questController) return;
-
-            if (secondaryBtnAction.action.WasPressedThisFrame())
-            {
-                // Debug.Log($"is {secondaryBtnAction.action.name} klick");
-
-                if (questController.questCanvas.activeSelf == false)
-                    questController.PrintItems();
-                else questController.CloseQuestCanvas();
-
-                questController.questCanvas.transform.position = playerHead.position + new Vector3(playerHead.forward.x, 0, playerHead.forward.z).normalized * spawnDistance;
-            }
-
-            HandleCanvasLook(questController.questCanvas, playerHead, maxDistance);
         }
 
         public void HandleCanvasLook(GameObject canvasTarget, Transform playerHead, float maxDistance)
@@ -123,17 +94,5 @@ namespace Seville
             popupState = false;
             UI_popupPanel.SetActive(false);
         }
-
-#if UNITY_EDITOR
-        private void OnDrawGizmos()
-        {
-            if (playerHead != null && questController)
-            {
-                GUI.color = Color.black;
-                Handles.Label(transform.position - (playerHead.position -
-                 questController.questCanvas.transform.position) / 2, distanceBetweenObjects.ToString());
-            }
-        }
-#endif
     }
 }

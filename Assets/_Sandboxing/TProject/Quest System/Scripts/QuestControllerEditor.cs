@@ -1,11 +1,12 @@
 using UnityEditor;
 using UnityEngine;
+using Sandboxing.Seville;
 
-namespace Seville
+namespace Tproject.Quest
 {
 #if UNITY_EDITOR
-    // [CustomEditor(typeof(ScoreController))]
-    public class ScoreControllerEditor : Editor
+    // [CustomEditor(typeof(QuestController))]
+    public class QuestControllerEditor : Editor
     {
         SerializedProperty dataManagerProperty;
 
@@ -17,12 +18,9 @@ namespace Seville
 
         public override void OnInspectorGUI()
         {
-            // Render properti lain dengan DrawDefaultInspector
+            // Edit add dataManager
             serializedObject.Update();
 
-            // Susun GUI secara manual sesuai keinginan Anda:
-
-            // 1. Render properti dataManager dan tombol
             EditorGUILayout.BeginVertical();
             EditorGUILayout.PropertyField(dataManagerProperty, true);
 
@@ -32,8 +30,8 @@ namespace Seville
                 GUILayout.FlexibleSpace(); // Ini akan mendorong tombol ke kanan
                 if (GUILayout.Button("Create DataManager", GUILayout.Width(250), GUILayout.Height(20)))
                 {
-                    //!!! DataManager newDataManager = CreateDataManagerAsset();
-                    //!!! dataManagerProperty.objectReferenceValue = newDataManager;
+                    DataManagerScriptableObject newDataManager = CreateDataManagerAsset();
+                    dataManagerProperty.objectReferenceValue = newDataManager;
                     serializedObject.ApplyModifiedProperties();
                 }
                 EditorGUILayout.EndHorizontal();
@@ -47,16 +45,16 @@ namespace Seville
             serializedObject.ApplyModifiedProperties();
         }
 
-        //!! private DataManager CreateDataManagerAsset()
-        //! {
-        //!     DataManager asset = ScriptableObject.CreateInstance<DataManager>();
+        private DataManagerScriptableObject CreateDataManagerAsset()
+        {
+            DataManagerScriptableObject asset = ScriptableObject.CreateInstance<DataManagerScriptableObject>();
 
-        //     // Tentukan di mana Anda ingin menyimpan asset DataManager ini.
-        // !    AssetDatabase.CreateAsset(asset, "Assets/SEVILLE/MyDataManager.asset");
-        // !    AssetDatabase.SaveAssets();
+            // Tentukan di mana Anda ingin menyimpan asset DataManager ini.
+            AssetDatabase.CreateAsset(asset, "Assets/SEVILLE/My Data Manager/New Data Manager.asset");
+            AssetDatabase.SaveAssets();
 
-        // !    return asset;
-        //! }
+            return asset;
+        }
     }
 #endif
 }

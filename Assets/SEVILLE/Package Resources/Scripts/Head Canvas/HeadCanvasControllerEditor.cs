@@ -19,10 +19,6 @@ namespace Seville
             SerializedProperty spawnDistanceProp = serializedObject.FindProperty("spawnDistance");
             SerializedProperty maxDistanceProp = serializedObject.FindProperty("maxDistance");
             SerializedProperty useQuestCanvasProp = serializedObject.FindProperty("useQuestCanvas");
-            SerializedProperty dataManagerProp = serializedObject.FindProperty("dataManager");
-            SerializedProperty questControllerProp = serializedObject.FindProperty("questController");
-            SerializedProperty scoreControllerProp = serializedObject.FindProperty("scoreController");
-            SerializedProperty secondaryBtnActionProp = serializedObject.FindProperty("secondaryBtnAction");
             SerializedProperty useMenuCanvasProp = serializedObject.FindProperty("useMenuCanvas");
             SerializedProperty MenuCanvasProp = serializedObject.FindProperty("MenuCanvas");
             SerializedProperty primaryBtnActionProp = serializedObject.FindProperty("primaryBtnAction");
@@ -36,32 +32,8 @@ namespace Seville
             EditorGUILayout.PropertyField(maxDistanceProp);
             EditorGUILayout.PropertyField(useQuestCanvasProp);
 
-            // Jika useQuestCanvas bernilai true, tampilkan questController dan secondaryBtnAction
-            if (myScript.useQuestCanvas)
-            {
-                EditorGUILayout.BeginVertical();
-                EditorGUILayout.PropertyField(dataManagerProp, true);
-
-                if (dataManagerProp.objectReferenceValue == null)
-                {
-                    EditorGUILayout.BeginHorizontal();
-                    GUILayout.FlexibleSpace(); // Ini akan mendorong tombol ke kanan
-                    if (GUILayout.Button("Create DataManager", GUILayout.Width(250), GUILayout.Height(20)))
-                    {
-                        DataManager newDataManager = CreateDataManagerAsset();
-                        dataManagerProp.objectReferenceValue = newDataManager;
-                    }
-                    EditorGUILayout.EndHorizontal();
-                }
-                EditorGUILayout.EndVertical();
-                EditorGUILayout.Space(15f);
-
-                EditorGUILayout.PropertyField(questControllerProp);
-                EditorGUILayout.PropertyField(scoreControllerProp);
-                EditorGUILayout.PropertyField(secondaryBtnActionProp);
-            }
-
             EditorGUILayout.PropertyField(useMenuCanvasProp);
+
             if (myScript.useMenuCanvas)
             {
                 EditorGUILayout.PropertyField(MenuCanvasProp);
@@ -76,7 +48,8 @@ namespace Seville
             serializedObject.ApplyModifiedProperties();
         }
 
-        private DataManager CreateDataManagerAsset()
+        // this for create new data manager
+        /* private DataManager CreateDataManagerAsset()
         {
             DataManager asset = ScriptableObject.CreateInstance<DataManager>();
 
@@ -85,7 +58,7 @@ namespace Seville
             AssetDatabase.SaveAssets();
 
             return asset;
-        }
+        } */
     }
 }
 #endif

@@ -7,7 +7,7 @@ namespace Seville
 {
     public class ScoreController : MonoBehaviour
     {
-        public DataManager dataManager;
+        //!! public DataManager dataManager;
         public HeadCanvasController headCanvas;
 #if UNITY_EDITOR
         [ReadOnly]
@@ -29,15 +29,15 @@ namespace Seville
 
         void GetDataManager()
         {
-            dataManager = headCanvas.dataManager;
-            score = dataManager.currentPlayerScore;
-            scoreMax = dataManager.playerMaxScore;
+            //!!!! dataManager = headCanvas.dataManager;
+            //!!score = dataManager.currentPlayerScore;
+            //!! scoreMax = dataManager.playerMaxScore;
         }
 
         public void IncreaseScore(int val)
         {
-            if (!dataManager)
-                GetDataManager();
+            //!! if (!dataManager)
+            //!!     GetDataManager();
 
             if (isScoreMaxReached)
             {
@@ -55,8 +55,8 @@ namespace Seville
 
         public void DecreaseScore(int val)
         {
-            if (!dataManager)
-                GetDataManager();
+            //!! if (!dataManager)
+            //!!     GetDataManager();
 
             if (isScoreMaxReached)
             {
@@ -97,10 +97,10 @@ namespace Seville
 
         private void UpdateScore()
         {
-            if (dataManager)
-            {
-                dataManager.currentPlayerScore = this.score;
-            }
+            //!! if (dataManager)
+            //!! {
+            //!!     dataManager.currentPlayerScore = this.score;
+            //!! }
 
             if (scoreText != null)
             {
