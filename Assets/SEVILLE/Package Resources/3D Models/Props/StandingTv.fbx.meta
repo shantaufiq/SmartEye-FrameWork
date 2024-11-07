@@ -3,27 +3,12 @@ guid: dfbeb3cfa64a1f449a9000a862b0f5d8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Black
-    second: {fileID: 2100000, guid: 98beab60e5f0d8e40a23c23dfd51b2e5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Layar
-    second: {fileID: 2100000, guid: 7d73c86ff3a08a94fb06352fbb54ecb4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Silver1
-    second: {fileID: 2100000, guid: f020c4fc74499814f8c3287bf1888161, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
-    materialSearch: 0
-    materialLocation: 0
+    materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
